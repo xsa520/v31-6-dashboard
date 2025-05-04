@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2025-05-01",
+    "trades": [
+      {"symbol": "TSLA", "action": "BUY", "price": 168.90, "quantity": 5},
+      {"symbol": "NVDA", "action": "SELL", "price": 822.50, "quantity": 2}
+    ],
+    "capital": 10120.00
+  },
+  {
+    "date": "2025-05-02",
+    "trades": [
+      {"symbol": "PLTR", "action": "BUY", "price": 23.10, "quantity": 50}
+    ],
+    "capital": 10250.00
+  },
+  {
+    "date": "2025-05-03",
+    "trades": [],
+    "capital": 10300.00
+  },
+  {
+    "date": "2025-05-04",
+    "trades": [
+      {"symbol": "CELH", "action": "SELL", "price": 84.75, "quantity": 10}
+    ],
+    "capital": 10420.00
+  }
+]

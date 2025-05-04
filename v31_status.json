@@ -1,0 +1,43 @@
+{
+  "last_update": "2025-05-04 23:59:00",
+  "today_trades": [
+    {
+      "symbol": "TSLA",
+      "action": "BUY",
+      "price": 172.45,
+      "quantity": 10,
+      "time": "2025-05-04 09:42:10"
+    },
+    {
+      "symbol": "NVDA",
+      "action": "SELL",
+      "price": 823.12,
+      "quantity": 5,
+      "time": "2025-05-04 10:11:23"
+    }
+  ],
+  "capital": {
+    "initial": 10000,
+    "current": 10420.00,
+    "profit": 420.00,
+    "profit_rate": "4.20%"
+  },
+  "report": {
+    "daily": {
+      "date": "2025-05-04",
+      "trade_count": 2,
+      "note": "今日已完成 2 筆交易"
+    },
+    "weekly": {
+      "week": "2025-W18",
+      "trade_count": 14,
+      "note": "本週策略正常運作"
+    },
+    "monthly": {
+      "month": "2025-05",
+      "trade_count": 37,
+      "note": "月初回測良好"
+    }
+  },
+  "status": "✅ 策略正常執行中，監控中 10 檔個股。"
+}
