@@ -1,16 +1,28 @@
-from flask import Flask, send_from_directory
+
+from flask import Flask, render_template, jsonify
+import datetime
+import json
 import os
 
 app = Flask(__name__)
 
-@app.route('/')
-def serve_dashboard():
-    return send_from_directory('.', 'V31.6_Web_Dashboard.html')
+DATA_DIR = "data"
 
-@app.route('/<path:filename>')
-def serve_static(filename):
-    return send_from_directory('.', filename)
+@app.route('/')
+def dashboard():
+    with open(os.path.join(DATA_DIR, 'v31_status.json'), ' 'r') as f:
+        status = json.load(f)
+    with open(os.path.join(DATA_DIR, 'capital_trend.json'), 'r') as f:
+        capital_trend = json.load(f)
+    return render_template('index.html', status=status, capital_trend=capital_trend)
+
+@app.route('/v31_status.json')
+def v31_status():
+    return jsonify(json.load(open(os.path.join(DATA_DIR, 'v31_status.json'))))
+
+@app.route('/capital_trend.json')
+def capital_trend():
+    return jsonify(json.load(open(os.path.join(DATA_DIR, 'capital_trend.json'))))
 
 if __name__ == '__main__':
-    # 讓區網內其他裝置（例如手機）也可以開啟此網頁
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
