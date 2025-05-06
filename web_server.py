@@ -10,7 +10,7 @@ DATA_DIR = "data"
 
 @app.route('/')
 def dashboard():
-    with open(os.path.join(DATA_DIR, 'v31_status.json'), ' 'r') as f:
+    with open(os.path.join(DATA_DIR, 'v31_status.json'), 'r') as f:
         status = json.load(f)
     with open(os.path.join(DATA_DIR, 'capital_trend.json'), 'r') as f:
         capital_trend = json.load(f)
