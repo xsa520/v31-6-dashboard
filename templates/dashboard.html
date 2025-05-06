@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>V31 策略儀表板</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>V31 策略狀態監控</h1>
+    <p>📅 最後更新時間：{{ status.last_update }}</p>
+    <h2>📊 資金狀況</h2>
+    <ul>
+        <li>初始資金：{{ status.capital.initial }}</li>
+        <li>目前資金：{{ status.capital.current }}</li>
+        <li>累計損益：{{ status.capital.profit }} ({{ status.capital.profit_rate }})</li>
+    </ul>
+
+    <h2>📝 今日交易紀錄</h2>
+    <ul>
+    {% for trade in status.today_trades %}
+        <li>
+            {{ trade.time }}：{{ trade.action }} {{ trade.symbol }} @ {{ trade.price }} × {{ trade.quantity }} 股
+        </li>
+    {% endfor %}
+    </ul>
+
+    <h2>📅 日報</h2>
+    <p>{{ status.report.daily.note }}</p>
+
+    <h2>📈 週報</h2>
+    <p>{{ status.report.weekly.note }}</p>
+
+    <h2>📆 月報</h2>
+    <p>{{ status.report.monthly.note }}</p>
+
+    <h2>🔔 狀態</h2>
+    <p>{{ status.status }}</p>
+</body>
+</html>
