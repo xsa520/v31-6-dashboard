@@ -1,5 +1,5 @@
 {
-  "last_update": "2025-05-04 23:59:00",
+  "last_update": "2025-05-06 22:05:00",
   "today_trades": [
     {
       "symbol": "TSLA",
@@ -14,29 +14,43 @@
       "price": 823.12,
       "quantity": 5,
       "time": "2025-05-04 10:11:23"
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "price": 185.12,
+      "quantity": 12,
+      "time": "2025-05-05 09:36:15"
+    },
+    {
+      "symbol": "TSLA",
+      "action": "SELL",
+      "price": 169.88,
+      "quantity": 5,
+      "time": "2025-05-05 10:04:45"
     }
   ],
   "capital": {
     "initial": 10000,
-    "current": 10420.00,
-    "profit": 420.00,
-    "profit_rate": "4.20%"
+    "current": 10550.00,
+    "profit": 550.00,
+    "profit_rate": "5.50%"
   },
   "report": {
     "daily": {
-      "date": "2025-05-04",
+      "date": "2025-05-06",
       "trade_count": 2,
-      "note": "今日已完成 2 筆交易"
+      "note": "今日策略正常執行"
     },
     "weekly": {
-      "week": "2025-W18",
-      "trade_count": 14,
-      "note": "本週策略正常運作"
+      "week": "2025-W19",
+      "trade_count": 4,
+      "note": "本週已開局良好"
     },
     "monthly": {
       "month": "2025-05",
-      "trade_count": 37,
-      "note": "月初回測良好"
+      "trade_count": 41,
+      "note": "月初交易穩定"
     }
   },
   "status": "✅ 策略正常執行中，監控中 10 檔個股。"

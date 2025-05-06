@@ -1,28 +1,47 @@
-
 from flask import Flask, render_template, jsonify
-import datetime
-import json
 import os
+import json
+from datetime import datetime
 
 app = Flask(__name__)
 
-DATA_DIR = "data"
+DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+
+def load_json(filename):
+    path = os.path.join(DATA_DIR, filename)
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
 
 @app.route('/')
 def dashboard():
-    with open(os.path.join(DATA_DIR, 'v31_status.json'), 'r') as f:
-        status = json.load(f)
-    with open(os.path.join(DATA_DIR, 'capital_trend.json'), 'r') as f:
-        capital_trend = json.load(f)
-    return render_template('index.html', status=status, capital_trend=capital_trend)
+    status = load_json('v31_status.json')
+    capital = status.get("capital", {})
+    today_trades = status.get("today_trades", [])
+    report = status.get("report", {})
+    status_text = status.get("status", "⚠️ 無法讀取策略狀態")
+
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    return render_template('dashboard.html',
+                           now=now,
+                           capital=capital,
+                           today_trades=today_trades,
+                           report=report,
+                           status_text=status_text)
 
 @app.route('/v31_status.json')
-def v31_status():
-    return jsonify(json.load(open(os.path.join(DATA_DIR, 'v31_status.json'))))
+def get_status():
+    return jsonify(load_json('v31_status.json'))
 
 @app.route('/capital_trend.json')
-def capital_trend():
-    return jsonify(json.load(open(os.path.join(DATA_DIR, 'capital_trend.json'))))
+def get_capital():
+    return jsonify(load_json('capital_trend.json'))
+
+@app.route('/v31_status_history.json')
+def get_history():
+    return jsonify(load_json('v31_status_history.json'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
+    app.run(debug=True)
