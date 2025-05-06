@@ -1,47 +1,33 @@
-from flask import Flask, render_template, jsonify
-import os
+from flask import Flask, render_template
 import json
-from datetime import datetime
+import os
 
 app = Flask(__name__)
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+# 設定資料資料夾位置
+DATA_DIR = os.path.join(os.path.dirname(__file__), "date")
 
-def load_json(filename):
-    path = os.path.join(DATA_DIR, filename)
-    if os.path.exists(path):
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return {}
-
-@app.route('/')
+@app.route("/")
 def dashboard():
-    status = load_json('v31_status.json')
-    capital = status.get("capital", {})
-    today_trades = status.get("today_trades", [])
-    report = status.get("report", {})
-    status_text = status.get("status", "⚠️ 無法讀取策略狀態")
+    # 讀取 v31_status.json
+    with open(os.path.join(DATA_DIR, "v31_status.json"), "r", encoding="utf-8") as f:
+        status = json.load(f)
+    
+    # 讀取 capital_trend.json
+    with open(os.path.join(DATA_DIR, "capital_trend.json"), "r", encoding="utf-8") as f:
+        capital_data = json.load(f)
 
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # 讀取 v31_status_history.json
+    with open(os.path.join(DATA_DIR, "v31_status_history.json"), "r", encoding="utf-8") as f:
+        history = json.load(f)
 
-    return render_template('dashboard.html',
-                           now=now,
-                           capital=capital,
-                           today_trades=today_trades,
-                           report=report,
-                           status_text=status_text)
+    return render_template(
+        "dashboard.html",
+        status=status,
+        capital_data=capital_data,
+        history=history
+    )
 
-@app.route('/v31_status.json')
-def get_status():
-    return jsonify(load_json('v31_status.json'))
-
-@app.route('/capital_trend.json')
-def get_capital():
-    return jsonify(load_json('capital_trend.json'))
-
-@app.route('/v31_status_history.json')
-def get_history():
-    return jsonify(load_json('v31_status_history.json'))
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
+
