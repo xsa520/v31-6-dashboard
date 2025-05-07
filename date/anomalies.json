@@ -1,4 +1,1 @@
-[
-    {"timestamp": "2025-05-07 10:30:12", "ticker": "NVDA", "type": "volume_spike", "message": "成交量異常放大，疑似主力進場。"},
-    {"timestamp": "2025-05-07 11:05:27", "ticker": "TSLA", "type": "macd_divergence", "message": "MACD 出現背離，趨勢反轉機率提高。"}
-]
+// 模擬檔案內容：AI 異常監控資料
