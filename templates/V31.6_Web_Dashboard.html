@@ -1,97 +1,103 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <title>📊 V31.9 智慧投資中控台</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            background-color: #111;
-            color: #f2f2f2;
-            font-family: "Microsoft JhengHei", sans-serif;
-            padding: 20px;
-        }
-        h2 { color: #00f0c0; }
-        .card { background-color: #222; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
-        .label { color: #aaa; margin-right: 8px; }
-        select { padding: 4px; }
-        canvas { background-color: #fff; }
-        .highlight { color: #ffd700; }
-    </style>
+  <meta charset="UTF-8">
+  <title>V31.9 智慧資金儀表板</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    setInterval(() => location.reload(), 60000); // 每分鐘自動刷新
+  </script>
+  <style>
+    body { font-family: "Segoe UI", sans-serif; background: #1e1e2f; color: #f5f5f5; margin: 0; padding: 20px; }
+    .container { max-width: 1200px; margin: auto; }
+    h1 { color: #00e6e6; }
+    select, .info-box { background: #2c2c3e; border: 1px solid #444; color: #fff; padding: 10px; margin: 10px 0; border-radius: 6px; }
+    .info-box { padding: 15px; font-size: 1.1em; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #444; padding: 8px; text-align: center; }
+    th { background-color: #333; }
+    .highlight { color: #ffcc00; }
+    .clock { font-size: 1.2em; float: right; }
+  </style>
 </head>
 <body>
-    <h2>🧠 V31.9 智慧投資中控台</h2>
-    <div class="card">
-        <span class="label">現在時間：</span>{{ now_time }}
-    </div>
+<div class="container">
+  <h1>📈 V31.9 智慧資金儀表板 <span class="clock">{{ now_time }}</span></h1>
 
-    <div class="card">
-        <h3>💼 資金趨勢圖（{{ selected_ticker or "綜合" }}）</h3>
-        <canvas id="capitalChart" height="100"></canvas>
-    </div>
+  <label for="tickerSelect">📌 選擇股票代碼：</label>
+  <select id="tickerSelect" onchange="updateChart()">
+    {% for ticker in capital_trend.keys() %}
+      <option value="{{ ticker }}">{{ ticker }}</option>
+    {% endfor %}
+  </select>
 
-    <div class="card">
-        <span class="label">選擇觀察標的</span>
-        <form method="get">
-            <select name="ticker" onchange="this.form.submit()">
-                {% for ticker in capital_trend.keys() %}
-                    <option value="{{ ticker }}" {% if ticker == selected_ticker %}selected{% endif %}>{{ ticker }}</option>
-                {% endfor %}
-            </select>
-        </form>
-    </div>
+  <div id="capitalChart" style="height: 400px;"></div>
 
-    <div class="card">
-        <h3>📊 策略摘要資訊</h3>
-        <p>總資產：<span class="highlight">${{ '{:,.2f}'.format(total_capital) }}</span></p>
-        <p>狀態：{{ v31_status.get("狀態", "尚未偵測") }}</p>
-        <p>年化報酬率：{{ v31_status.get("年化報酬率", "N/A") }}</p>
-        <p>勝率：{{ v31_status.get("勝率", "N/A") }}</p>
-        <p>風險率：{{ v31_status.get("風險率", "N/A") }}</p>
-    </div>
+  <div class="info-box">
+    💰 <strong>總資金：</strong> ${{ '%.2f' % total_capital }}<br>
+    📈 <strong>年化報酬率：</strong> {{ summary_metrics.annual_return }}% &nbsp;
+    🎯 <strong>勝率：</strong> {{ summary_metrics.accuracy }}% &nbsp;
+    ⚠️ <strong>風險率：</strong> {{ summary_metrics.risk }}%
+  </div>
 
-    <div class="card">
-        <h3>📌 歷史交易紀錄</h3>
-        <ul>
-            {% for record in v31_status_history %}
-                <li>{{ record }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+  <div class="info-box">
+    <strong>📊 異常偵測：</strong>
+    <ul>
+      {% for a in anomalies %}
+        <li class="highlight">{{ a }}</li>
+      {% else %}
+        <li>尚未偵測到重大異常。</li>
+      {% endfor %}
+    </ul>
+  </div>
 
-    <div class="card">
-        <h3>📍 AI 異常偵測</h3>
-        <ul>
-            {% for item in anomalies %}
-                <li>📅 {{ item.get('時間', '') }} ｜ {{ item.get('標的', '') }}：<span class="highlight">{{ item.get('異常事件', '') }}</span> — {{ item.get('說明', '') }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+  <div class="info-box">
+    <strong>📌 主動策略評估：</strong><br>
+    {% if v31_status %}
+      最新策略狀態：<strong>{{ v31_status.status }}</strong><br>
+      建議操作：<strong>{{ v31_status.suggestion }}</strong><br>
+      評估時間：{{ v31_status.time }}
+    {% else %}
+      尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。
+    {% endif %}
+  </div>
 
-    <script>
-        const rawData = {{ capital_trend | tojson }};
-        const ctx = document.getElementById('capitalChart').getContext('2d');
-        const labels = rawData["{{ selected_ticker or '綜合' }}"].map(entry => entry[0]);
-        const values = rawData["{{ selected_ticker or '綜合' }}"].map(entry => entry[1]);
+  <h2>📜 歷史交易紀錄</h2>
+  <table>
+    <tr><th>時間</th><th>代碼</th><th>方向</th><th>價格</th><th>股數</th></tr>
+    {% for t in v31_status_history[-10:] %}
+    <tr>
+      <td>{{ t.time }}</td>
+      <td>{{ t.ticker }}</td>
+      <td>{{ t.action }}</td>
+      <td>{{ t.price }}</td>
+      <td>{{ t.shares }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 
-        const chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: '{{ selected_ticker or "綜合資產趨勢" }}',
-                    data: values,
-                    borderColor: 'cyan',
-                    backgroundColor: 'rgba(0,255,255,0.1)',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                scales: {
-                    y: { beginAtZero: false }
-                }
-            }
-        });
-    </script>
+<script>
+  const capitalTrend = {{ capital_trend | tojson }};
+  const defaultTicker = Object.keys(capitalTrend)[0];
+  const plotColors = ['#00ccff', '#ff9900', '#33cc33', '#ff3399', '#cc00ff', '#ffff00', '#ff6666', '#3399ff', '#9966cc', '#00ff99', '#ffffff'];
+
+  function updateChart() {
+    const ticker = document.getElementById('tickerSelect').value;
+    const data = capitalTrend[ticker] || [];
+    const x = data.map(item => item[0]);
+    const y = data.map(item => item[1]);
+    const trace = {
+      x: x,
+      y: y,
+      type: 'scatter',
+      mode: 'lines+markers',
+      line: { color: plotColors[Math.floor(Math.random() * plotColors.length)], width: 2 }
+    };
+    Plotly.newPlot('capitalChart', [trace], { margin: { t: 30 } });
+  }
+
+  updateChart();
+</script>
 </body>
 </html>
