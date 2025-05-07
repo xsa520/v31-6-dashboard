@@ -2,92 +2,96 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>V31.9 Web Dashboard</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>V31.9 智慧投資中控台</title>
+    <meta http-equiv="refresh" content="60">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             background-color: #121212;
-            color: #e0e0e0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            margin: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
         }
         h1 {
-            color: #03dac6;
+            color: #00e6b8;
         }
         .section {
-            margin-bottom: 40px;
-        }
-        #clock {
-            font-size: 24px;
-            font-weight: bold;
-            color: #bb86fc;
-        }
-        .card {
-            background-color: #1f1f1f;
-            border-radius: 12px;
+            background-color: #1e1e1e;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        canvas {
+            background-color: #1e1e1e;
+        }
+        .anomaly {
+            background-color: #2a2a2a;
+            border-left: 5px solid #ff4081;
+            padding: 10px;
+            margin-bottom: 10px;
         }
     </style>
+</head>
+<body>
+    <h1>🧠 V31.9 智慧投資中控台</h1>
+
+    <p><strong>🕒 現在時間：</strong><span id="clock">載入中...</span></p>
+
+    <div class="section">
+        <h3>🖥️ 系統狀態</h3>
+        <p>目前已部署最新版本策略模組。</p>
+    </div>
+
+    <div class="section">
+        <h3>📊 資金配置趨勢圖</h3>
+        <canvas id="capitalChart" height="200"></canvas>
+    </div>
+
+    <div class="section">
+        <h3>🤖 AI 策略雷達（V31.9）</h3>
+        {% if anomalies %}
+            {% for anomaly in anomalies %}
+                <div class="anomaly">
+                    <strong>{{ anomaly.date }}｜{{ anomaly.ticker }}【{{ anomaly.type }}】</strong><br>
+                    {{ anomaly.message }}<br>
+                    <em>👉 {{ anomaly.action }}</em>
+                </div>
+            {% endfor %}
+        {% else %}
+            尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。
+        {% endif %}
+    </div>
+
     <script>
         function updateClock() {
             const now = new Date();
-            document.getElementById("clock").textContent = now.toLocaleString('zh-TW');
+            const options = { hour12: false };
+            document.getElementById('clock').textContent = now.toLocaleString('zh-TW', options);
         }
         setInterval(updateClock, 1000);
-        window.onload = function() {
-            updateClock();
-            setInterval(() => location.reload(), 60000); // 每分鐘自動刷新
-        }
-    </script>
-</head>
-<body>
-    <h1>⚙️ V31.9 智慧投資中控台</h1>
-    <div class="section card">
-        <div id="clock">載入中...</div>
-    </div>
+        updateClock();
 
-    <div class="section card">
-        <h2>📊 系統狀態</h2>
-        <ul>
-            {% for item in v31_status %}
-            <li>{{ item.date }}：策略狀態為「{{ item.status }}」｜當前資產：{{ item.total_capital }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="section card">
-        <h2>📈 資金配置趨勢圖</h2>
-        <div id="capitalTrendPlot"></div>
-    </div>
-
-    <div class="section card">
-        <h2>🧠 AI 策略雷達（V31.9）</h2>
-        <p>尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。</p>
-    </div>
-
-    <script>
         const capitalTrend = {{ capital_trend | tojson }};
-        const traces = [];
+        const ctx = document.getElementById('capitalChart').getContext('2d');
 
-        for (const ticker in capitalTrend) {
-            const data = capitalTrend[ticker];
-            traces.push({
-                x: data.map(d => d.date),
-                y: data.map(d => d.value),
-                mode: 'lines+markers',
-                name: ticker
-            });
-        }
+        const labels = capitalTrend[0].dates;
+        const datasets = capitalTrend.map(entry => ({
+            label: entry.ticker,
+            data: entry.values,
+            borderColor: entry.color || 'white',
+            fill: false
+        }));
 
-        Plotly.newPlot('capitalTrendPlot', traces, {
-            title: '資金配置變化趨勢（最近10日）',
-            paper_bgcolor: '#121212',
-            plot_bgcolor: '#121212',
-            font: { color: '#ffffff' },
-            xaxis: { title: '日期' },
-            yaxis: { title: '資金量（USD）' }
+        new Chart(ctx, {
+            type: 'line',
+            data: { labels: labels, datasets: datasets },
+            options: {
+                plugins: { legend: { labels: { color: 'white' } } },
+                scales: {
+                    x: { ticks: { color: 'white' } },
+                    y: { ticks: { color: 'white' }, title: { display: true, text: '資金 (USD)', color: 'white' } }
+                }
+            }
         });
     </script>
 </body>
