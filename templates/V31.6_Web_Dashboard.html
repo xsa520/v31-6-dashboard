@@ -1,147 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>V31.9 智慧投資中控台</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #121212;
-            color: #E0E0E0;
-            font-family: 'Noto Sans TC', sans-serif;
-            padding: 20px;
-        }
-        h1 {
-            color: #00e5c4;
-        }
-        .section {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .highlight {
-            color: #f06292;
-        }
-        canvas {
-            background-color: #fff;
-            border-radius: 4px;
-            margin-top: 15px;
-        }
-        select {
-            margin-top: 10px;
-        }
-        .anomaly-card {
-            background-color: #2b2b2b;
-            border-left: 5px solid #ff4081;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 4px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>V31.9 智慧投資儀表板</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #eee;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      padding: 20px;
+    }
+    .clock {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    canvas {
+      background: #fff;
+      border-radius: 8px;
+    }
+    select, h2 {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>🧠 V31.9 智慧投資中控台</h1>
-    <p><strong>🕒 現在時間：</strong> {{ now_time }}</p>
+  <div class="container">
+    <div class="clock">現在時間：<span id="clock">{{ now_time }}</span></div>
 
-    <div class="section">
-        <h3>🖥️ 系統狀態</h3>
-        {% if v31_status.status %}
-            <p>{{ v31_status.status }}</p>
-        {% else %}
-            <p>目前已部署最新版本策略模組。</p>
-        {% endif %}
-        <p><strong>總資金：</strong> {{ total_capital }} USD</p>
-    </div>
+    <h2>資金趨勢圖（綜合）</h2>
+    <canvas id="trendChart" width="800" height="400"></canvas>
 
-    <div class="section">
-        <h3>📈 資金配置趨勢圖</h3>
-        {% if capital_trend %}
-            <label for="tickerSelect">顯示股票：</label>
-            <select id="tickerSelect" onchange="updateChart()">
-                <option value="綜合">綜合</option>
-                {% for ticker in capital_trend.keys() %}
-                    <option value="{{ ticker }}">{{ ticker }}</option>
-                {% endfor %}
-            </select>
-            <canvas id="trendChart" width="800" height="400"></canvas>
-        {% else %}
-            <p>⚠️ 尚無可用的資金趨勢資料。</p>
-        {% endif %}
-    </div>
+    <h2>選擇觀察標的</h2>
+    <select id="tickerSelect">
+      {% for ticker in capital_trend.keys() %}
+        <option value="{{ ticker }}">{{ ticker }}</option>
+      {% endfor %}
+    </select>
 
-    <div class="section">
-        <h3>📊 AI 策略雷達（V31.9）</h3>
-        {% if anomalies %}
-            {% for item in anomalies %}
-                <div class="anomaly-card">
-                    <strong>{{ item.date }} | {{ item.ticker }}【{{ item.tag }}】</strong><br>
-                    {{ item.message }}<br>
-                    {% if item.suggestion %}<em>📌 {{ item.suggestion }}</em>{% endif %}
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。</p>
-        {% endif %}
-    </div>
+    <h2>策略摘要資訊</h2>
+    <p>總資金：${{ '%.2f' % total_capital }}</p>
+    <p>狀態：{{ v31_status.get("策略狀態", "尚未啟動主動策略演算") }}</p>
+    <p>年化報酬率：{{ v31_status.get("年化報酬率", "N/A") }}</p>
+    <p>勝率：{{ v31_status.get("勝率", "N/A") }}</p>
+    <p>風險率：{{ v31_status.get("最大風險", "N/A") }}</p>
 
-    <div class="section">
-        <h3>📂 歷史交易紀錄</h3>
-        {% if v31_status_history %}
-            <ul>
-                {% for record in v31_status_history %}
-                    <li>{{ record.date }} - {{ record.detail }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>尚無交易紀錄。</p>
-        {% endif %}
-    </div>
+    <h2>歷史交易紀錄</h2>
+    <ul>
+      {% for entry in v31_status_history %}
+        <li>{{ entry["date"] }} - {{ entry["summary"] }}</li>
+      {% endfor %}
+    </ul>
 
-    <script>
-        const capitalTrend = {{ capital_trend | tojson }};
-        const ctx = document.getElementById('trendChart').getContext('2d');
-        let chart;
+    <h2>AI 異常偵測</h2>
+    <ul>
+      {% for a in anomalies %}
+        <li>{{ a }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 
-        function updateChart() {
-            const ticker = document.getElementById('tickerSelect').value;
-            const data = capitalTrend[ticker] || [];
-            const labels = data.map(x => x[0]);
-            const values = data.map(x => x[1]);
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // 顯示動態時鐘
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleString("zh-TW", { hour12: false });
+    }
+    setInterval(updateClock, 1000);
 
-            if (chart) chart.destroy();
-            chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: '資金變化',
-                        data: values,
-                        borderColor: 'cyan',
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointHoverRadius: 6,
-                        fill: false,
-                        tension: 0.3
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { display: true }
-                    },
-                    scales: {
-                        x: { title: { display: true, text: '日期' } },
-                        y: { title: { display: true, text: '資金 (USD)' }, beginAtZero: false }
-                    }
-                }
-            });
+    // 畫出趨勢圖（預設為 綜合）
+    const rawData = {{ capital_trend | tojson }};
+    const ctx = document.getElementById('trendChart').getContext('2d');
+
+    function buildChart(data, label = '綜合') {
+      const series = data[label] || [];
+      const labels = series.map(point => point[0]);
+      const values = series.map(point => point[1]);
+
+      return new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: `${label} 資金走勢`,
+            data: values,
+            borderColor: '#4bc0c0',
+            backgroundColor: 'rgba(75, 192, 192, 0.1)',
+            borderWidth: 2,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: { display: true, title: { display: true, text: '時間' } },
+            y: { display: true, title: { display: true, text: '資金（美元）' } }
+          }
         }
+      });
+    }
 
-        window.onload = function () {
-            updateChart();
-            setInterval(() => location.reload(), 60000); // 每60秒刷新
-        };
-    </script>
+    let chart = buildChart(rawData);
+
+    document.getElementById('tickerSelect').addEventListener('change', function () {
+      chart.destroy();
+      chart = buildChart(rawData, this.value);
+    });
+
+    // 自動每分鐘重新整理
+    setInterval(() => {
+      location.reload();
+    }, 60000);
+  </script>
 </body>
 </html>
