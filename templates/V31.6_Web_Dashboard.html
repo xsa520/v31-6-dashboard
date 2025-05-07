@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>V31 策略監控系統</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>📊 V31 策略監控系統</h2>
+    <p>📅 最後更新時間：{{ v31_status['update_time'] if v31_status else '無資料' }}</p>
+    <p>🕒 美國盤基準時間：{{ v31_status['us_time'] if v31_status else '無資料' }}</p>
+
+    <label for="chartType">選擇顯示股票資金變化圖：</label>
+    <select id="chartType">
+        <option value="capital">資金趨勢</option>
+        <option value="status">策略狀態歷史</option>
+    </select>
+
+    <canvas id="mainChart" width="800" height="400"></canvas>
+
+    <script>
+        const capitalTrend = {{ capital_trend | tojson }};
+        const statusHistory = {{ status_history | tojson }};
+
+        const chart = document.getElementById('mainChart').getContext('2d');
+        let chartInstance;
+
+        function renderCapitalChart() {
+            if (chartInstance) chartInstance.destroy();
+            chartInstance = new Chart(chart, {
+                type: 'line',
+                data: {
+                    labels: capitalTrend.dates,
+                    datasets: [{
+                        label: '資金變化',
+                        data: capitalTrend.values,
+                        borderColor: 'blue',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+
+        function renderStatusChart() {
+            if (chartInstance) chartInstance.destroy();
+            const labels = statusHistory.map(item => item.time);
+            const values = statusHistory.map(item => item.status_code);
+
+            chartInstance = new Chart(chart, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '策略狀態碼',
+                        data: values,
+                        borderColor: 'green',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+
+        document.getElementById('chartType').addEventListener('change', function() {
+            if (this.value === 'capital') {
+                renderCapitalChart();
+            } else {
+                renderStatusChart();
+            }
+        });
+
+        // 預設載入資金趨勢圖
+        renderCapitalChart();
+    </script>
+</body>
+</html>
