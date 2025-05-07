@@ -1,8 +1,15 @@
 {
-  "last_update": "2025-05-07 20:35:00",
-  "strategy_name": "V31.9",
-  "market_condition": "多頭",
-  "current_position": "持有 NVDA",
-  "confidence": "高",
-  "next_action": "觀察突破訊號"
+  "last_update": "2025-05-07 16:30:00",
+  "current_status": {
+    "NVDA": {
+      "position": "HOLD",
+      "price": 894.52,
+      "profit_pct": 5.27
+    },
+    "AAPL": {
+      "position": "SELL",
+      "price": 176.43,
+      "profit_pct": -2.13
+    }
+  }
 }

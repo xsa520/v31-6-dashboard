@@ -1,17 +1,14 @@
 [
   {
-    "date": "2025-05-01",
-    "action": "BUY NVDA",
-    "confidence": "中等"
+    "time": "2025-05-04 14:10",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 887.30
   },
   {
-    "date": "2025-05-04",
-    "action": "HOLD NVDA",
-    "confidence": "高"
-  },
-  {
-    "date": "2025-05-06",
-    "action": "SELL NVDA",
-    "confidence": "中"
+    "time": "2025-05-04 18:45",
+    "ticker": "AAPL",
+    "action": "SELL",
+    "price": 179.80
   }
 ]
