@@ -1,26 +1,4 @@
 [
-  {
-    "timestamp": "2025-05-07 10:30:12",
-    "ticker": "NVDA",
-    "type": "volume_spike",
-    "message": "成交量異常放大，疑似主力進場。"
-  },
-  {
-    "timestamp": "2025-05-07 11:05:27",
-    "ticker": "TSLA",
-    "type": "macd_divergence",
-    "message": "MACD 出現背離，趨勢反轉機率提高。"
-  },
-  {
-    "timestamp": "2025-05-07 12:14:43",
-    "ticker": "AAPL",
-    "type": "sudden_drop",
-    "message": "價格突跌超過 3%，可能有突發利空消息。"
-  },
-  {
-    "timestamp": "2025-05-07 13:02:55",
-    "ticker": "PLTR",
-    "type": "short_interest_surge",
-    "message": "空單比例急升，需注意回補風險或突襲性反彈。"
-  }
+    {"timestamp": "2025-05-07 10:30:12", "ticker": "NVDA", "type": "volume_spike", "message": "成交量異常放大，疑似主力進場。"},
+    {"timestamp": "2025-05-07 11:05:27", "ticker": "TSLA", "type": "macd_divergence", "message": "MACD 出現背離，趨勢反轉機率提高。"}
 ]

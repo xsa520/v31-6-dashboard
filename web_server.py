@@ -1,52 +1,44 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 import json
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 
-def load_json(filename, default=None):
-    filepath = os.path.join("data", filename)
-    if os.path.exists(filepath):
-        with open(filepath, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return default if default is not None else {}
-
 @app.route("/")
 def index():
-    capital_trend = load_json("capital_trend.json", [])
-    summary_metrics = load_json("summary_metrics.json", {
-        "annual_return": 0, "win_rate": 0, "risk_rate": 0
-    })
-    v31_status = load_json("v31_status.json", {
-        "status": "尚未評估", "suggestion": "無建議", "evaluated_at": "N/A"
-    })
-    trade_records = load_json("trade_records.json", [])
-    anomalies = load_json("anomalies.json", [])
+    try:
+        with open("data/summary_metrics.json", "r") as f:
+            summary_metrics = json.load(f)
+    except:
+        summary_metrics = {"annual_return": 0, "win_rate": 0, "risk_rate": 0, "capital": 0}
+
+    try:
+        with open("data/trade_records.json", "r") as f:
+            trade_records = json.load(f)
+    except:
+        trade_records = []
+
+    try:
+        with open("data/anomalies.json", "r") as f:
+            anomalies = json.load(f)
+    except:
+        anomalies = []
+
+    try:
+        with open("data/v31_status.json", "r") as f:
+            v31_status = json.load(f)
+    except:
+        v31_status = {"status": "尚未評估", "recommendation": "無建議", "evaluate_time": "N/A"}
 
     return render_template(
         "V31.6_Web_Dashboard.html",
-        capital_trend=capital_trend,
         summary_metrics=summary_metrics,
-        v31_status=v31_status,
         trade_records=trade_records,
-        anomalies=anomalies
+        anomalies=anomalies,
+        v31_status=v31_status,
+        current_time=datetime.now().strftime('%Y/%m/%d %p%I:%M:%S')
     )
-
-@app.route("/api/metrics")
-def get_metrics():
-    return jsonify(load_json("summary_metrics.json", {}))
-
-@app.route("/api/trades")
-def get_trades():
-    return jsonify(load_json("trade_records.json", []))
-
-@app.route("/api/status")
-def get_status():
-    return jsonify(load_json("v31_status.json", {}))
-
-@app.route("/api/anomalies")
-def get_anomalies():
-    return jsonify(load_json("anomalies.json", []))
 
 if __name__ == "__main__":
     app.run(debug=True)
