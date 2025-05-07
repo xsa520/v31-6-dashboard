@@ -1,103 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>V31.9 智慧資金儀表板</title>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script>
-    setInterval(() => location.reload(), 60000); // 每分鐘自動刷新
-  </script>
-  <style>
-    body { font-family: "Segoe UI", sans-serif; background: #1e1e2f; color: #f5f5f5; margin: 0; padding: 20px; }
-    .container { max-width: 1200px; margin: auto; }
-    h1 { color: #00e6e6; }
-    select, .info-box { background: #2c2c3e; border: 1px solid #444; color: #fff; padding: 10px; margin: 10px 0; border-radius: 6px; }
-    .info-box { padding: 15px; font-size: 1.1em; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #444; padding: 8px; text-align: center; }
-    th { background-color: #333; }
-    .highlight { color: #ffcc00; }
-    .clock { font-size: 1.2em; float: right; }
-  </style>
+    <meta charset="UTF-8">
+    <title>V31.9 智慧資金儀表板</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #f0f0f0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 20px;
+        }
+        h1, h2 {
+            color: #36f3a6;
+        }
+        select {
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #888;
+            padding: 8px;
+            text-align: center;
+        }
+        #current-time {
+            color: #00ffff;
+            font-size: 20px;
+            text-align: right;
+        }
+        .highlight {
+            color: #ffcc00;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>📈 V31.9 智慧資金儀表板 <span class="clock">{{ now_time }}</span></h1>
+    <div class="container">
+        <h1>📊 V31.9 智慧資金儀表板</h1>
+        <div id="current-time"></div>
 
-  <label for="tickerSelect">📌 選擇股票代碼：</label>
-  <select id="tickerSelect" onchange="updateChart()">
-    {% for ticker in capital_trend.keys() %}
-      <option value="{{ ticker }}">{{ ticker }}</option>
-    {% endfor %}
-  </select>
+        <hr>
 
-  <div id="capitalChart" style="height: 400px;"></div>
+        <label>選擇觀察標的：</label>
+        <select>
+            {% for stock in capital_trend %}
+                <option value="{{ stock.ticker }}">{{ stock.ticker }}</option>
+            {% endfor %}
+        </select>
 
-  <div class="info-box">
-    💰 <strong>總資金：</strong> ${{ '%.2f' % total_capital }}<br>
-    📈 <strong>年化報酬率：</strong> {{ summary_metrics.annual_return }}% &nbsp;
-    🎯 <strong>勝率：</strong> {{ summary_metrics.accuracy }}% &nbsp;
-    ⚠️ <strong>風險率：</strong> {{ summary_metrics.risk }}%
-  </div>
+        <canvas id="capitalChart" height="100"></canvas>
 
-  <div class="info-box">
-    <strong>📊 異常偵測：</strong>
-    <ul>
-      {% for a in anomalies %}
-        <li class="highlight">{{ a }}</li>
-      {% else %}
-        <li>尚未偵測到重大異常。</li>
-      {% endfor %}
-    </ul>
-  </div>
+        <p>💰 <strong>總資金：</strong> ${{ "{:,.2f}".format(capital_trend[-1]['value']) if capital_trend else "N/A" }}</p>
+        <p>📈 <strong>年化報酬率：</strong> {{ summary_metrics.annual_return }}% &nbsp;
+           🎯 <strong>勝率：</strong> {{ summary_metrics.win_rate }}% &nbsp;
+           ⚠️ <strong>風險率：</strong> {{ summary_metrics.risk_rate }}%</p>
 
-  <div class="info-box">
-    <strong>📌 主動策略評估：</strong><br>
-    {% if v31_status %}
-      最新策略狀態：<strong>{{ v31_status.status }}</strong><br>
-      建議操作：<strong>{{ v31_status.suggestion }}</strong><br>
-      評估時間：{{ v31_status.time }}
-    {% else %}
-      尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。
-    {% endif %}
-  </div>
+        <h3>🔍 異常偵測：</h3>
+        <ul>
+            {% for a in anomalies %}
+                <li class="highlight">{{ a }}</li>
+            {% else %}
+                <li>無異常資料</li>
+            {% endfor %}
+        </ul>
 
-  <h2>📜 歷史交易紀錄</h2>
-  <table>
-    <tr><th>時間</th><th>代碼</th><th>方向</th><th>價格</th><th>股數</th></tr>
-    {% for t in v31_status_history[-10:] %}
-    <tr>
-      <td>{{ t.time }}</td>
-      <td>{{ t.ticker }}</td>
-      <td>{{ t.action }}</td>
-      <td>{{ t.price }}</td>
-      <td>{{ t.shares }}</td>
-    </tr>
-    {% endfor %}
-  </table>
-</div>
+        <h3>🤖 主動策略評估：</h3>
+        <p>最新策略狀態：{{ v31_status.status }}</p>
+        <p>建議操作：{{ v31_status.suggestion }}</p>
+        <p>評估時間：{{ v31_status.evaluated_at }}</p>
 
-<script>
-  const capitalTrend = {{ capital_trend | tojson }};
-  const defaultTicker = Object.keys(capitalTrend)[0];
-  const plotColors = ['#00ccff', '#ff9900', '#33cc33', '#ff3399', '#cc00ff', '#ffff00', '#ff6666', '#3399ff', '#9966cc', '#00ff99', '#ffffff'];
+        <h3>📚 歷史交易紀錄：</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>時間</th>
+                    <th>代碼</th>
+                    <th>方向</th>
+                    <th>價格</th>
+                    <th>股數</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trade in trade_records %}
+                <tr>
+                    <td>{{ trade.time }}</td>
+                    <td>{{ trade.ticker }}</td>
+                    <td>{{ trade.direction }}</td>
+                    <td>{{ trade.price }}</td>
+                    <td>{{ trade.quantity }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="5">尚無交易紀錄</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-  function updateChart() {
-    const ticker = document.getElementById('tickerSelect').value;
-    const data = capitalTrend[ticker] || [];
-    const x = data.map(item => item[0]);
-    const y = data.map(item => item[1]);
-    const trace = {
-      x: x,
-      y: y,
-      type: 'scatter',
-      mode: 'lines+markers',
-      line: { color: plotColors[Math.floor(Math.random() * plotColors.length)], width: 2 }
-    };
-    Plotly.newPlot('capitalChart', [trace], { margin: { t: 30 } });
-  }
+    <!-- 顯示台灣時間 -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const formatter = new Intl.DateTimeFormat('zh-TW', {
+                year: 'numeric', month: '2-digit', day: '2-digit',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: true, timeZone: 'Asia/Taipei'
+            });
+            document.getElementById('current-time').innerText = formatter.format(now);
+        }
+        setInterval(updateTime, 1000);
+        window.onload = updateTime;
+    </script>
 
-  updateChart();
-</script>
+    <!-- 如有 Chart.js 或 Plotly 可自行加入資金曲線圖 -->
+
 </body>
 </html>
