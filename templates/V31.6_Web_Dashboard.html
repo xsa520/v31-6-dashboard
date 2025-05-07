@@ -2,102 +2,93 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>📊 V31 策略監控系統</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <title>V31.9 Web Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #03dac6;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        #clock {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bb86fc;
+        }
+        .card {
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+    </style>
     <script>
-        // 每分鐘自動刷新
-        setInterval(() => location.reload(), 60 * 1000);
-
-        // 實時電子時鐘（含秒）
         function updateClock() {
-            const dt = luxon.DateTime.now().setZone('Asia/Taipei');
-            document.getElementById("local-time").innerText = dt.toFormat("yyyy/MM/dd HH:mm:ss");
-            const ny = dt.setZone('America/New_York');
-            document.getElementById("ny-time").innerText = ny.toFormat("yyyy/MM/dd hh:mm:ss a");
+            const now = new Date();
+            document.getElementById("clock").textContent = now.toLocaleString('zh-TW');
         }
         setInterval(updateClock, 1000);
-        window.onload = updateClock;
+        window.onload = function() {
+            updateClock();
+            setInterval(() => location.reload(), 60000); // 每分鐘自動刷新
+        }
     </script>
 </head>
-<body style="font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5;">
-    <h2>📈 V31 策略監控系統</h2>
+<body>
+    <h1>⚙️ V31.9 智慧投資中控台</h1>
+    <div class="section card">
+        <div id="clock">載入中...</div>
+    </div>
 
-    <p>🕒 最後更新時間：<span id="local-time">無資料</span></p>
-    <p>🇺🇸 美國盤基準時間：<span id="ny-time">無資料</span></p>
+    <div class="section card">
+        <h2>📊 系統狀態</h2>
+        <ul>
+            {% for item in v31_status %}
+            <li>{{ item.date }}：策略狀態為「{{ item.status }}」｜當前資產：{{ item.total_capital }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 
-    <label for="view-select">選擇顯示股票資金變化圖：</label>
-    <select id="view-select" onchange="renderChart()">
-        <option value="all">綜合</option>
-        {% for ticker in capital_trend.keys() %}
-            <option value="{{ ticker }}">{{ ticker }}</option>
-        {% endfor %}
-    </select>
+    <div class="section card">
+        <h2>📈 資金配置趨勢圖</h2>
+        <div id="capitalTrendPlot"></div>
+    </div>
 
-    <canvas id="capitalChart" width="800" height="400"></canvas>
+    <div class="section card">
+        <h2>🧠 AI 策略雷達（V31.9）</h2>
+        <p>尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。</p>
+    </div>
 
     <script>
         const capitalTrend = {{ capital_trend | tojson }};
+        const traces = [];
 
-        function renderChart() {
-            const ctx = document.getElementById('capitalChart').getContext('2d');
-            const selected = document.getElementById('view-select').value;
-
-            let labels = [];
-            let datasets = [];
-
-            if (selected === "all") {
-                const tickers = Object.keys(capitalTrend);
-                labels = capitalTrend[tickers[0]].map(point => point.date);
-                datasets = tickers.map(ticker => ({
-                    label: ticker,
-                    data: capitalTrend[ticker].map(point => point.value),
-                    fill: false,
-                    borderColor: getRandomColor(),
-                    tension: 0.1
-                }));
-            } else {
-                labels = capitalTrend[selected].map(point => point.date);
-                datasets = [{
-                    label: selected,
-                    data: capitalTrend[selected].map(point => point.value),
-                    fill: false,
-                    borderColor: 'blue',
-                    tension: 0.1
-                }];
-            }
-
-            if (window.capitalChartInstance) {
-                window.capitalChartInstance.destroy();
-            }
-
-            window.capitalChartInstance = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels,
-                    datasets
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: true
-                        }
-                    }
-                }
+        for (const ticker in capitalTrend) {
+            const data = capitalTrend[ticker];
+            traces.push({
+                x: data.map(d => d.date),
+                y: data.map(d => d.value),
+                mode: 'lines+markers',
+                name: ticker
             });
         }
 
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        renderChart();
+        Plotly.newPlot('capitalTrendPlot', traces, {
+            title: '資金配置變化趨勢（最近10日）',
+            paper_bgcolor: '#121212',
+            plot_bgcolor: '#121212',
+            font: { color: '#ffffff' },
+            xaxis: { title: '日期' },
+            yaxis: { title: '資金量（USD）' }
+        });
     </script>
 </body>
 </html>

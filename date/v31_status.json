@@ -1,30 +1,37 @@
 {
-  "strategy_version": "V31.9",
-  "last_updated": "2025-05-07 21:00:00",
-  "market_status": "開盤中",
-  "portfolio_summary": {
-    "total_value": 100000,
-    "daily_change": 2150,
-    "change_percent": 2.15
-  },
-  "selected_stock": "綜合",
-  "stock_list": [
-    "NVDA", "TSLA", "AAPL", "PLTR", "CELH",
-    "AMZN", "META", "GOOGL", "MSFT", "AMD", "綜合"
+  "last_update": "2025-05-07 21:00:00",
+  "current_time": "2025-05-07 21:00:00",
+  "total_capital": 11680,
+  "available_cash": 1380,
+  "used_margin": 0,
+  "current_positions": [
+    {
+      "ticker": "NVDA",
+      "shares": 10,
+      "avg_cost": 860.50,
+      "current_price": 902.30,
+      "unrealized_pl": 418.00
+    },
+    {
+      "ticker": "CELH",
+      "shares": 20,
+      "avg_cost": 82.00,
+      "current_price": 87.40,
+      "unrealized_pl": 108.00
+    },
+    {
+      "ticker": "TSLA",
+      "shares": 5,
+      "avg_cost": 165.00,
+      "current_price": 172.00,
+      "unrealized_pl": 35.00
+    }
   ],
-  "current_signal": {
-    "symbol": "NVDA",
-    "action": "BUY",
-    "confidence": "高",
-    "price": 891.21,
-    "volume": 32000000,
-    "macd": "金叉",
-    "ma150_slope": "上升",
-    "breakout": true
-  },
-  "ai_radar": {
-    "status": "強多訊號",
-    "note": "突破壓力帶且量能大增，主力進場機率高",
-    "risk_level": "低風險"
-  }
+  "active_radar_signals": [
+    "NVDA：法人連3日加碼（籌碼集中度 +92）",
+    "CELH：短線急縮量後爆量突破",
+    "TSLA：當沖比異常（情緒熱度過高）"
+  ],
+  "system_status": "運行中",
+  "dashboard_mode": "night"
 }

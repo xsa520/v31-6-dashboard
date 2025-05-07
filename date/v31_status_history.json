@@ -1,38 +1,52 @@
 [
   {
-    "timestamp": "2025-04-28 09:31:00",
-    "action": "BUY",
-    "ticker": "NVDA",
-    "price": 856.23,
-    "shares": 12,
-    "amount": 10274.76,
-    "confidence": "★★★"
+    "date": "2025-04-28",
+    "total_capital": 10820,
+    "available_cash": 820
   },
   {
-    "timestamp": "2025-04-30 10:02:00",
-    "action": "SELL",
-    "ticker": "NVDA",
-    "price": 879.11,
-    "shares": 12,
-    "amount": 10549.32,
-    "confidence": "★★"
+    "date": "2025-04-29",
+    "total_capital": 11040,
+    "available_cash": 1040
   },
   {
-    "timestamp": "2025-05-04 09:30:00",
-    "action": "BUY",
-    "ticker": "PLTR",
-    "price": 22.43,
-    "shares": 300,
-    "amount": 6729.00,
-    "confidence": "★★★"
+    "date": "2025-04-30",
+    "total_capital": 11210,
+    "available_cash": 1210
   },
   {
-    "timestamp": "2025-05-06 10:15:00",
-    "action": "SELL",
-    "ticker": "PLTR",
-    "price": 23.02,
-    "shares": 300,
-    "amount": 6906.00,
-    "confidence": "★★"
+    "date": "2025-05-01",
+    "total_capital": 11250,
+    "available_cash": 1250
+  },
+  {
+    "date": "2025-05-02",
+    "total_capital": 11320,
+    "available_cash": 1320
+  },
+  {
+    "date": "2025-05-03",
+    "total_capital": 11400,
+    "available_cash": 1350
+  },
+  {
+    "date": "2025-05-04",
+    "total_capital": 11500,
+    "available_cash": 1370
+  },
+  {
+    "date": "2025-05-05",
+    "total_capital": 11560,
+    "available_cash": 1360
+  },
+  {
+    "date": "2025-05-06",
+    "total_capital": 11610,
+    "available_cash": 1370
+  },
+  {
+    "date": "2025-05-07",
+    "total_capital": 11680,
+    "available_cash": 1380
   }
 ]
