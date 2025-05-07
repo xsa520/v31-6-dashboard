@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-def load_json(filename, default):
+def load_json(filename, default={}):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -16,23 +16,26 @@ def load_json(filename, default):
 
 @app.route('/')
 def index():
+    # 設定 JSON 檔案資料夾位置
     base_path = os.path.join(os.path.dirname(__file__), 'date')
 
-    capital_trend = load_json(os.path.join(base_path, 'capital_trend.json'), {})
-    v31_status = load_json(os.path.join(base_path, 'v31_status.json'), {})
-    v31_status_history = load_json(os.path.join(base_path, 'v31_status_history.json'), [])
-    anomalies = load_json(os.path.join(base_path, 'anomalies.json'), [])
-    trade_records = load_json(os.path.join(base_path, 'trade_records.json'), [])
+    # 讀取所有必要的 JSON 檔案
+    capital_trend = load_json(os.path.join(base_path, 'capital_trend.json'), default={})
+    v31_status = load_json(os.path.join(base_path, 'v31_status.json'), default={})
+    v31_status_history = load_json(os.path.join(base_path, 'v31_status_history.json'), default=[])
+    anomalies = load_json(os.path.join(base_path, 'anomalies.json'), default=[])
+    summary_metrics = load_json(os.path.join(base_path, 'summary_metrics.json'), default={})
+    trade_records = load_json(os.path.join(base_path, 'trade_records.json'), default=[])
 
-    # 確保格式為 dict
+    # 取得現在時間（台灣）
+    tz = pytz.timezone('Asia/Taipei')
+    now_time = datetime.now(tz).strftime('%Y/%m/%d 下午%I:%M:%S')
+
+    # 確保 capital_trend 為 dict 格式
     if isinstance(capital_trend, list):
         capital_trend = {}
 
-    # 台灣時間
-    now = datetime.now(pytz.timezone('Asia/Taipei'))
-    now_time = now.strftime('%Y/%m/%d %p%I:%M:%S')
-
-    # 總資金計算
+    # 提取最新的總資金數值（取綜合資金曲線的最後一筆資料）
     total_capital = 0
     try:
         combined = capital_trend.get("綜合", [])
@@ -48,6 +51,7 @@ def index():
         v31_status=v31_status,
         v31_status_history=v31_status_history,
         anomalies=anomalies,
+        summary_metrics=summary_metrics,
         trade_records=trade_records,
         total_capital=total_capital
     )
