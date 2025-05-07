@@ -1,52 +1,23 @@
 [
   {
-    "date": "2025-04-28",
-    "total_capital": 10820,
-    "available_cash": 820
+    "日期": "2025-05-07",
+    "總資金": 12230,
+    "總報酬率": "22.3%",
+    "年化報酬率": "48.6%",
+    "交易準確率": "83.3%"
   },
   {
-    "date": "2025-04-29",
-    "total_capital": 11040,
-    "available_cash": 1040
+    "日期": "2025-05-06",
+    "總資金": 12100,
+    "總報酬率": "21.0%",
+    "年化報酬率": "47.0%",
+    "交易準確率": "81.8%"
   },
   {
-    "date": "2025-04-30",
-    "total_capital": 11210,
-    "available_cash": 1210
-  },
-  {
-    "date": "2025-05-01",
-    "total_capital": 11250,
-    "available_cash": 1250
-  },
-  {
-    "date": "2025-05-02",
-    "total_capital": 11320,
-    "available_cash": 1320
-  },
-  {
-    "date": "2025-05-03",
-    "total_capital": 11400,
-    "available_cash": 1350
-  },
-  {
-    "date": "2025-05-04",
-    "total_capital": 11500,
-    "available_cash": 1370
-  },
-  {
-    "date": "2025-05-05",
-    "total_capital": 11560,
-    "available_cash": 1360
-  },
-  {
-    "date": "2025-05-06",
-    "total_capital": 11610,
-    "available_cash": 1370
-  },
-  {
-    "date": "2025-05-07",
-    "total_capital": 11680,
-    "available_cash": 1380
+    "日期": "2025-05-05",
+    "總資金": 11920,
+    "總報酬率": "19.2%",
+    "年化報酬率": "45.2%",
+    "交易準確率": "80.0%"
   }
 ]

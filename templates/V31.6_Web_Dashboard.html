@@ -1,98 +1,147 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <title>V31.9 智慧投資中控台</title>
-    <meta http-equiv="refresh" content="60">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #121212;
-            color: white;
-            font-family: Arial, sans-serif;
+            color: #E0E0E0;
+            font-family: 'Noto Sans TC', sans-serif;
             padding: 20px;
         }
         h1 {
-            color: #00e6b8;
+            color: #00e5c4;
         }
         .section {
             background-color: #1e1e1e;
+            border-radius: 8px;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        .highlight {
+            color: #f06292;
         }
         canvas {
-            background-color: #1e1e1e;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-top: 15px;
         }
-        .anomaly {
-            background-color: #2a2a2a;
+        select {
+            margin-top: 10px;
+        }
+        .anomaly-card {
+            background-color: #2b2b2b;
             border-left: 5px solid #ff4081;
             padding: 10px;
-            margin-bottom: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
     <h1>🧠 V31.9 智慧投資中控台</h1>
-
-    <p><strong>🕒 現在時間：</strong><span id="clock">載入中...</span></p>
+    <p><strong>🕒 現在時間：</strong> {{ now_time }}</p>
 
     <div class="section">
         <h3>🖥️ 系統狀態</h3>
-        <p>目前已部署最新版本策略模組。</p>
+        {% if v31_status.status %}
+            <p>{{ v31_status.status }}</p>
+        {% else %}
+            <p>目前已部署最新版本策略模組。</p>
+        {% endif %}
+        <p><strong>總資金：</strong> {{ total_capital }} USD</p>
     </div>
 
     <div class="section">
-        <h3>📊 資金配置趨勢圖</h3>
-        <canvas id="capitalChart" height="200"></canvas>
+        <h3>📈 資金配置趨勢圖</h3>
+        {% if capital_trend %}
+            <label for="tickerSelect">顯示股票：</label>
+            <select id="tickerSelect" onchange="updateChart()">
+                <option value="綜合">綜合</option>
+                {% for ticker in capital_trend.keys() %}
+                    <option value="{{ ticker }}">{{ ticker }}</option>
+                {% endfor %}
+            </select>
+            <canvas id="trendChart" width="800" height="400"></canvas>
+        {% else %}
+            <p>⚠️ 尚無可用的資金趨勢資料。</p>
+        {% endif %}
     </div>
 
     <div class="section">
-        <h3>🤖 AI 策略雷達（V31.9）</h3>
+        <h3>📊 AI 策略雷達（V31.9）</h3>
         {% if anomalies %}
-            {% for anomaly in anomalies %}
-                <div class="anomaly">
-                    <strong>{{ anomaly.date }}｜{{ anomaly.ticker }}【{{ anomaly.type }}】</strong><br>
-                    {{ anomaly.message }}<br>
-                    <em>👉 {{ anomaly.action }}</em>
+            {% for item in anomalies %}
+                <div class="anomaly-card">
+                    <strong>{{ item.date }} | {{ item.ticker }}【{{ item.tag }}】</strong><br>
+                    {{ item.message }}<br>
+                    {% if item.suggestion %}<em>📌 {{ item.suggestion }}</em>{% endif %}
                 </div>
             {% endfor %}
         {% else %}
-            尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。
+            <p>尚未啟動主動策略演算，待系統自動偵測後顯示最新評估結果。</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h3>📂 歷史交易紀錄</h3>
+        {% if v31_status_history %}
+            <ul>
+                {% for record in v31_status_history %}
+                    <li>{{ record.date }} - {{ record.detail }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>尚無交易紀錄。</p>
         {% endif %}
     </div>
 
     <script>
-        function updateClock() {
-            const now = new Date();
-            const options = { hour12: false };
-            document.getElementById('clock').textContent = now.toLocaleString('zh-TW', options);
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
         const capitalTrend = {{ capital_trend | tojson }};
-        const ctx = document.getElementById('capitalChart').getContext('2d');
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        let chart;
 
-        const labels = capitalTrend[0].dates;
-        const datasets = capitalTrend.map(entry => ({
-            label: entry.ticker,
-            data: entry.values,
-            borderColor: entry.color || 'white',
-            fill: false
-        }));
+        function updateChart() {
+            const ticker = document.getElementById('tickerSelect').value;
+            const data = capitalTrend[ticker] || [];
+            const labels = data.map(x => x[0]);
+            const values = data.map(x => x[1]);
 
-        new Chart(ctx, {
-            type: 'line',
-            data: { labels: labels, datasets: datasets },
-            options: {
-                plugins: { legend: { labels: { color: 'white' } } },
-                scales: {
-                    x: { ticks: { color: 'white' } },
-                    y: { ticks: { color: 'white' }, title: { display: true, text: '資金 (USD)', color: 'white' } }
+            if (chart) chart.destroy();
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '資金變化',
+                        data: values,
+                        borderColor: 'cyan',
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                        fill: false,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { display: true }
+                    },
+                    scales: {
+                        x: { title: { display: true, text: '日期' } },
+                        y: { title: { display: true, text: '資金 (USD)' }, beginAtZero: false }
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        window.onload = function () {
+            updateChart();
+            setInterval(() => location.reload(), 60000); // 每60秒刷新
+        };
     </script>
 </body>
 </html>

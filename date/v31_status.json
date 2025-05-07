@@ -1,37 +1,9 @@
 {
-  "last_update": "2025-05-07 21:00:00",
-  "current_time": "2025-05-07 21:00:00",
-  "total_capital": 11680,
-  "available_cash": 1380,
-  "used_margin": 0,
-  "current_positions": [
-    {
-      "ticker": "NVDA",
-      "shares": 10,
-      "avg_cost": 860.50,
-      "current_price": 902.30,
-      "unrealized_pl": 418.00
-    },
-    {
-      "ticker": "CELH",
-      "shares": 20,
-      "avg_cost": 82.00,
-      "current_price": 87.40,
-      "unrealized_pl": 108.00
-    },
-    {
-      "ticker": "TSLA",
-      "shares": 5,
-      "avg_cost": 165.00,
-      "current_price": 172.00,
-      "unrealized_pl": 35.00
-    }
-  ],
-  "active_radar_signals": [
-    "NVDA：法人連3日加碼（籌碼集中度 +92）",
-    "CELH：短線急縮量後爆量突破",
-    "TSLA：當沖比異常（情緒熱度過高）"
-  ],
-  "system_status": "運行中",
-  "dashboard_mode": "night"
+  "總資金": 12230,
+  "總投入資金": 10000,
+  "總報酬率": "22.3%",
+  "年化報酬率": "48.6%",
+  "交易準確率": "83.3%",
+  "總交易次數": 12,
+  "最後更新時間": "2025/5/7 23:38:44"
 }
