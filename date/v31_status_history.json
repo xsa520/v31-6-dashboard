@@ -1,23 +1,17 @@
 [
   {
-    "date": "2025-05-04",
-    "capital": 10230,
-    "position_count": 3,
-    "winning_rate": "67%",
-    "total_trades": 12
+    "date": "2025-05-01",
+    "action": "BUY NVDA",
+    "confidence": "中等"
   },
   {
-    "date": "2025-05-05",
-    "capital": 10560,
-    "position_count": 2,
-    "winning_rate": "75%",
-    "total_trades": 8
+    "date": "2025-05-04",
+    "action": "HOLD NVDA",
+    "confidence": "高"
   },
   {
     "date": "2025-05-06",
-    "capital": 10890,
-    "position_count": 4,
-    "winning_rate": "80%",
-    "total_trades": 10
+    "action": "SELL NVDA",
+    "confidence": "中"
   }
 ]
