@@ -2,80 +2,102 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>V31 策略監控系統</title>
+    <title>📊 V31 策略監控系統</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <h2>📊 V31 策略監控系統</h2>
-    <p>📅 最後更新時間：{{ v31_status['update_time'] if v31_status else '無資料' }}</p>
-    <p>🕒 美國盤基準時間：{{ v31_status['us_time'] if v31_status else '無資料' }}</p>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <script>
+        // 每分鐘自動刷新
+        setInterval(() => location.reload(), 60 * 1000);
 
-    <label for="chartType">選擇顯示股票資金變化圖：</label>
-    <select id="chartType">
-        <option value="capital">資金趨勢</option>
-        <option value="status">策略狀態歷史</option>
+        // 實時電子時鐘（含秒）
+        function updateClock() {
+            const dt = luxon.DateTime.now().setZone('Asia/Taipei');
+            document.getElementById("local-time").innerText = dt.toFormat("yyyy/MM/dd HH:mm:ss");
+            const ny = dt.setZone('America/New_York');
+            document.getElementById("ny-time").innerText = ny.toFormat("yyyy/MM/dd hh:mm:ss a");
+        }
+        setInterval(updateClock, 1000);
+        window.onload = updateClock;
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5;">
+    <h2>📈 V31 策略監控系統</h2>
+
+    <p>🕒 最後更新時間：<span id="local-time">無資料</span></p>
+    <p>🇺🇸 美國盤基準時間：<span id="ny-time">無資料</span></p>
+
+    <label for="view-select">選擇顯示股票資金變化圖：</label>
+    <select id="view-select" onchange="renderChart()">
+        <option value="all">綜合</option>
+        {% for ticker in capital_trend.keys() %}
+            <option value="{{ ticker }}">{{ ticker }}</option>
+        {% endfor %}
     </select>
 
-    <canvas id="mainChart" width="800" height="400"></canvas>
+    <canvas id="capitalChart" width="800" height="400"></canvas>
 
     <script>
         const capitalTrend = {{ capital_trend | tojson }};
-        const statusHistory = {{ status_history | tojson }};
 
-        const chart = document.getElementById('mainChart').getContext('2d');
-        let chartInstance;
+        function renderChart() {
+            const ctx = document.getElementById('capitalChart').getContext('2d');
+            const selected = document.getElementById('view-select').value;
 
-        function renderCapitalChart() {
-            if (chartInstance) chartInstance.destroy();
-            chartInstance = new Chart(chart, {
-                type: 'line',
-                data: {
-                    labels: capitalTrend.dates,
-                    datasets: [{
-                        label: '資金變化',
-                        data: capitalTrend.values,
-                        borderColor: 'blue',
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        }
+            let labels = [];
+            let datasets = [];
 
-        function renderStatusChart() {
-            if (chartInstance) chartInstance.destroy();
-            const labels = statusHistory.map(item => item.time);
-            const values = statusHistory.map(item => item.status_code);
-
-            chartInstance = new Chart(chart, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: '策略狀態碼',
-                        data: values,
-                        borderColor: 'green',
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        }
-
-        document.getElementById('chartType').addEventListener('change', function() {
-            if (this.value === 'capital') {
-                renderCapitalChart();
+            if (selected === "all") {
+                const tickers = Object.keys(capitalTrend);
+                labels = capitalTrend[tickers[0]].map(point => point.date);
+                datasets = tickers.map(ticker => ({
+                    label: ticker,
+                    data: capitalTrend[ticker].map(point => point.value),
+                    fill: false,
+                    borderColor: getRandomColor(),
+                    tension: 0.1
+                }));
             } else {
-                renderStatusChart();
+                labels = capitalTrend[selected].map(point => point.date);
+                datasets = [{
+                    label: selected,
+                    data: capitalTrend[selected].map(point => point.value),
+                    fill: false,
+                    borderColor: 'blue',
+                    tension: 0.1
+                }];
             }
-        });
 
-        // 預設載入資金趨勢圖
-        renderCapitalChart();
+            if (window.capitalChartInstance) {
+                window.capitalChartInstance.destroy();
+            }
+
+            window.capitalChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        renderChart();
     </script>
 </body>
 </html>

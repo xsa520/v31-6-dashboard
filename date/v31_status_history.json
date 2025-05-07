@@ -1,14 +1,38 @@
 [
   {
-    "time": "2025-05-04 14:10",
-    "ticker": "NVDA",
+    "timestamp": "2025-04-28 09:31:00",
     "action": "BUY",
-    "price": 887.30
+    "ticker": "NVDA",
+    "price": 856.23,
+    "shares": 12,
+    "amount": 10274.76,
+    "confidence": "★★★"
   },
   {
-    "time": "2025-05-04 18:45",
-    "ticker": "AAPL",
+    "timestamp": "2025-04-30 10:02:00",
     "action": "SELL",
-    "price": 179.80
+    "ticker": "NVDA",
+    "price": 879.11,
+    "shares": 12,
+    "amount": 10549.32,
+    "confidence": "★★"
+  },
+  {
+    "timestamp": "2025-05-04 09:30:00",
+    "action": "BUY",
+    "ticker": "PLTR",
+    "price": 22.43,
+    "shares": 300,
+    "amount": 6729.00,
+    "confidence": "★★★"
+  },
+  {
+    "timestamp": "2025-05-06 10:15:00",
+    "action": "SELL",
+    "ticker": "PLTR",
+    "price": 23.02,
+    "shares": 300,
+    "amount": 6906.00,
+    "confidence": "★★"
   }
 ]
