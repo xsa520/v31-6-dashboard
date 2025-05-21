@@ -1,0 +1,8 @@
+Flask
+pandas
+numpy
+yfinance
+tqdm
+requests
+apscheduler
+gunicorn
