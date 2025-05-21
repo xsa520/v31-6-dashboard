@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>V38 策略儀表板</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background: #121212; color: #f1f1f1; margin: 20px; }
+    .dark-toggle { position: fixed; top: 10px; right: 20px; }
+    .clock { font-size: 16px; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #666; padding: 8px; text-align: center; }
+    th { background-color: #222; }
+    .alert { background-color: #900; color: #fff; padding: 10px; margin-top: 20px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div class="dark-toggle">
+    <button onclick="toggleMode()">切換模式</button>
+  </div>
+  <h1>V38 策略系統儀表板</h1>
+  <div class="clock">
+    🕐 台灣時間：<span id="tw-time"></span> |
+    🕐 紐約時間：<span id="us-time"></span>
+  </div>
+  <div>
+    <b id="initial_asset">初始金額：</b>&nbsp;&nbsp;
+    <b id="final_asset">最終金額：</b>&nbsp;&nbsp;
+    <b id="total_cagr">CAGR：</b>&nbsp;&nbsp;
+    <b id="win_rate">勝率：</b>&nbsp;&nbsp;
+    <b id="max_drawdown">最大回撤：</b>
+  </div>
+  <div id="asset_chart" style="height:350px;"></div>
+  <h2>單股績效</h2>
+  <form id="ticker_form">
+    <label>選擇股票：</label>
+    <select name="ticker" id="ticker_select"></select>
+    <span id="stock_cagr">該股CAGR：</span>
+  </form>
+  <div id="stock_chart" style="height:300px;"></div>
+  <h2>🧾 歷史交易紀錄</h2>
+  <table id="trade_table">
+    <tr><th>日期</th><th>標的</th><th>動作</th><th>價格</th><th>股數</th></tr>
+  </table>
+  <script>
+    // 電子時鐘
+    function updateClocks() {
+      const now = new Date();
+      document.getElementById("tw-time").innerText = now.toLocaleString("zh-TW", { timeZone: "Asia/Taipei" });
+      document.getElementById("us-time").innerText = now.toLocaleString("en-US", { timeZone: "America/New_York" });
+    }
+    setInterval(updateClocks, 1000);
+    updateClocks();
+    // 昏暗模式
+    function toggleMode() {
+      const b = document.body;
+      b.style.background = b.style.background === "white" ? "#121212" : "white";
+      b.style.color = b.style.color === "black" ? "#f1f1f1" : "black";
+    }
+    // AJAX 動態更新 dashboard
+    let currentTicker = null;
+    function updateDashboard() {
+      let url = '/api/dashboard';
+      if(currentTicker) url += '?ticker=' + encodeURIComponent(currentTicker);
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // 更新指標
+          document.getElementById('initial_asset').innerHTML = '初始金額：' + data.initial_asset;
+          document.getElementById('final_asset').innerHTML = '最終金額：' + data.final_asset;
+          document.getElementById('total_cagr').innerHTML = 'CAGR：' + data.total_cagr;
+          document.getElementById('win_rate').innerHTML = '勝率：' + data.win_rate;
+          document.getElementById('max_drawdown').innerHTML = '最大回撤：' + data.max_drawdown;
+          document.getElementById('stock_cagr').innerHTML = '該股CAGR：' + data.stock_cagr;
+          // 更新下拉選單
+          let tickerSelect = document.getElementById('ticker_select');
+          let oldValue = tickerSelect.value;
+          tickerSelect.innerHTML = '';
+          data.tickers.forEach(t => {
+            let opt = document.createElement('option');
+            opt.value = t;
+            opt.text = t;
+            if(t === data.selected_ticker) opt.selected = true;
+            tickerSelect.appendChild(opt);
+          });
+          currentTicker = data.selected_ticker;
+          // 更新資產曲線
+          var asset_data = data.account_history;
+          Plotly.react('asset_chart', [{
+            x: asset_data.map(d => d.date),
+            y: asset_data.map(d => d.asset),
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: '總資產'
+          }], {title: '資產淨值曲線'});
+          // 更新單股績效曲線
+          var stock_data = data.stock_price;
+          if(stock_data.length > 0){
+            Plotly.react('stock_chart', [{
+              x: stock_data.map(d => d.Date),
+              y: stock_data.map(d => d.Close),
+              type: 'scatter',
+              mode: 'lines+markers',
+              name: '收盤價'
+            }], {title: '單股績效曲線'});
+          } else {
+            Plotly.purge('stock_chart');
+          }
+          // 更新交易紀錄表格
+          let table = document.getElementById('trade_table');
+          let rows = '<tr><th>日期</th><th>標的</th><th>動作</th><th>價格</th><th>股數</th></tr>';
+          data.trade_records.forEach(t => {
+            rows += `<tr><td>${t.date}</td><td>${t.ticker}</td><td>${t.action}</td><td>${t.price}</td><td>${t.shares}</td></tr>`;
+          });
+          table.innerHTML = rows;
+        });
+    }
+    setInterval(updateDashboard, 1000);
+    updateDashboard();
+    // 下拉選單切換
+    document.getElementById('ticker_select').addEventListener('change', function(){
+      currentTicker = this.value;
+      updateDashboard();
+    });
+  </script>
+</body>
+</html>
+from flask import Flask, render_template, request, jsonify
+import pandas as pd
+import numpy as np
+import os
+
+def calc_cagr(start_value, end_value, n_years):
+    if start_value <= 0 or n_years <= 0:
+        return 0
+    return (end_value / start_value) ** (1 / n_years) - 1
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def dashboard():
+    return render_template('V31.6_Web_Dashboard.html')
+
+@app.route('/api/dashboard', methods=['GET'])
+def api_dashboard():
+    # 1. 讀取資產歷史
+    try:
+        account_history = pd.read_csv('account_history.csv', parse_dates=['date'])
+    except:
+        account_history = pd.DataFrame(columns=['date', 'asset'])
+    # 2. 讀取交易紀錄
+    try:
+        trade_records = pd.read_csv('trade_records.csv')
+    except:
+        trade_records = pd.DataFrame(columns=['date', 'ticker', 'action', 'price', 'shares'])
+    # 3. 取得所有有交易的股票
+    tickers = sorted(trade_records['ticker'].unique()) if not trade_records.empty else []
+    # 4. 下拉選單選擇股票
+    selected_ticker = request.args.get('ticker', tickers[0] if tickers else None)
+    # 5. 單股績效資料
+    if selected_ticker:
+        stock_trades = trade_records[trade_records['ticker'] == selected_ticker]
+        try:
+            stock_price = pd.read_csv(f'./sp500_data/{selected_ticker}.csv', parse_dates=['Date'])
+            stock_price = stock_price.set_index('Date')
+        except:
+            stock_price = pd.DataFrame()
+        if not stock_price.empty:
+            start_price = stock_price['Close'].iloc[0]
+            end_price = stock_price['Close'].iloc[-1]
+            n_years = (stock_price.index[-1] - stock_price.index[0]).days / 365.25
+            stock_cagr = calc_cagr(start_price, end_price, n_years)
+        else:
+            stock_cagr = 0
+    else:
+        stock_trades = pd.DataFrame()
+        stock_price = pd.DataFrame()
+        stock_cagr = 0
+    if not account_history.empty:
+        initial_asset = account_history['asset'].iloc[0]
+        final_asset = account_history['asset'].iloc[-1]
+        n_years = (account_history['date'].iloc[-1] - account_history['date'].iloc[0]).days / 365.25
+        total_cagr = calc_cagr(initial_asset, final_asset, n_years)
+    else:
+        initial_asset = final_asset = total_cagr = 0
+    if not trade_records.empty:
+        win_trades = trade_records[(trade_records['action'] == '賣出') & (trade_records['price'] > 0)]
+        win_rate = f"{(win_trades['price'] > 0).mean() * 100:.1f}%"
+    else:
+        win_rate = "0%"
+    if not account_history.empty:
+        cummax = account_history['asset'].cummax()
+        drawdown = (account_history['asset'] - cummax) / cummax
+        max_drawdown = f"{drawdown.min() * 100:.2f}%"
+    else:
+        max_drawdown = "0%"
+    return jsonify({
+        'account_history': account_history.to_dict('records'),
+        'trade_records': trade_records.to_dict('records'),
+        'tickers': tickers,
+        'selected_ticker': selected_ticker,
+        'stock_trades': stock_trades.to_dict('records'),
+        'stock_price': stock_price.reset_index().to_dict('records') if not stock_price.empty else [],
+        'stock_cagr': f"{stock_cagr*100:.2f}%",
+        'initial_asset': initial_asset,
+        'final_asset': final_asset,
+        'total_cagr': f"{total_cagr*100:.2f}%",
+        'win_rate': win_rate,
+        'max_drawdown': max_drawdown
+    })
+
+if __name__ == '__main__':
+    app.run(debug=True)
+

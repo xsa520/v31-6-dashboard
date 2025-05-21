@@ -1,0 +1,4466 @@
+[
+  {
+    "date": "2001-04-18",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.2951982617378235,
+    "shares": 10670,
+    "position_type": "long"
+  },
+  {
+    "date": "2001-06-18",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.3488042652606964,
+    "shares": 10670,
+    "position_type": "long"
+  },
+  {
+    "date": "2001-12-05",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.4801259934902191,
+    "shares": 7632,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-01-11",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.4819599688053131,
+    "shares": 7632,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-06-12",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.21358507871627808,
+    "shares": 17217,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-07-05",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.14511540532112122,
+    "shares": 17217,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-07-25",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.11508361995220184,
+    "shares": 41172,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-08-15",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.07863281667232513,
+    "shares": 41172,
+    "position_type": "short"
+  },
+  {
+    "date": "2003-03-13",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.10560821741819382,
+    "shares": 57656,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-03-31",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.09842442721128464,
+    "shares": 57656,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-05-02",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.1215026006102562,
+    "shares": 47046,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-05-19",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.15329226851463318,
+    "shares": 47046,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-05-29",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.18500490486621857,
+    "shares": 38173,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-06-13",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.17934978008270264,
+    "shares": 38173,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-01-06",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.18951380252838135,
+    "shares": 36239,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-01-22",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.1804959625005722,
+    "shares": 36239,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-03-25",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.1866096407175064,
+    "shares": 35227,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-04-15",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.18653352558612823,
+    "shares": 35227,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-07-06",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.1385432332754135,
+    "shares": 47432,
+    "position_type": "short"
+  },
+  {
+    "date": "2004-08-17",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.08382947742938995,
+    "shares": 47432,
+    "position_type": "short"
+  },
+  {
+    "date": "2005-02-02",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.188367560505867,
+    "shares": 47285,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-03-08",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.2020455300807953,
+    "shares": 47285,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-05-13",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.1935632824897766,
+    "shares": 49023,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-07-18",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.20036475360393524,
+    "shares": 49023,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-08-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.22886785864830017,
+    "shares": 42772,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-10-10",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.24621464312076569,
+    "shares": 42772,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-11-02",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.26791733503341675,
+    "shares": 39030,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-04-17",
+    "ticker": "NVDA",
+    "action": "SELL_TAKE_PROFIT",
+    "price": 0.45361006259918213,
+    "shares": 39030,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-05-01",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.47225549817085266,
+    "shares": 35954,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-05-12",
+    "ticker": "NVDA",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.40241026878356934,
+    "shares": 35954,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-10-09",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.5031282901763916,
+    "shares": 29256,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-01-03",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.5514227151870728,
+    "shares": 29256,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-06-15",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.6044566035270691,
+    "shares": 26455,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-08-03",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.6501535773277283,
+    "shares": 26455,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-10-17",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.9064552783966064,
+    "shares": 18841,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-10-25",
+    "ticker": "NVDA",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.7954980731010437,
+    "shares": 18841,
+    "position_type": "long"
+  },
+  {
+    "date": "2008-01-16",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.5435522794723511,
+    "shares": 27960,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-02-01",
+    "ticker": "NVDA",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.6157658696174622,
+    "shares": 27960,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-03-06",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.454832524061203,
+    "shares": 29419,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-03-25",
+    "ticker": "NVDA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.4658363461494446,
+    "shares": 29419,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-06-18",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.45643720030784607,
+    "shares": 28677,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-08-13",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.28106069564819336,
+    "shares": 28677,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-09-09",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.24781954288482666,
+    "shares": 71082,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-10-13",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.18454642593860626,
+    "shares": 71082,
+    "position_type": "short"
+  },
+  {
+    "date": "2009-07-23",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.2980252504348755,
+    "shares": 72690,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-08-17",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.29481568932533264,
+    "shares": 72690,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-08-28",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.33768555521965027,
+    "shares": 63531,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-09-24",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.3379148542881012,
+    "shares": 63531,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-12-04",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.3269108533859253,
+    "shares": 65665,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-01-12",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.40508508682250977,
+    "shares": 65665,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-02-17",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.40898245573043823,
+    "shares": 63784,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-04-30",
+    "ticker": "NVDA",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.3601520359516144,
+    "shares": 63784,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-07-29",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.20930546522140503,
+    "shares": 111241,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-08-19",
+    "ticker": "NVDA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.22649922966957092,
+    "shares": 111241,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-12-07",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.3434167504310608,
+    "shares": 62787,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-01-21",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.509394109249115,
+    "shares": 62787,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-01-24",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.566935658454895,
+    "shares": 54576,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-02-10",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.5231491327285767,
+    "shares": 54576,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-05-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.4699629843235016,
+    "shares": 61261,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-05-13",
+    "ticker": "NVDA",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.41861093044281006,
+    "shares": 61261,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-06-16",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.37115609645843506,
+    "shares": 69941,
+    "position_type": "short"
+  },
+  {
+    "date": "2011-08-11",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.30742448568344116,
+    "shares": 69941,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-01-24",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.34249985218048096,
+    "shares": 87506,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-03-05",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.3406658172607422,
+    "shares": 87506,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-11-14",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 0.2645547091960907,
+    "shares": 112742,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-12-10",
+    "ticker": "NVDA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.28518128395080566,
+    "shares": 112742,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-04-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.3038775622844696,
+    "shares": 91265,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-06-12",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.32782015204429626,
+    "shares": 91265,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-08-14",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.35068583488464355,
+    "shares": 84691,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-10-09",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.3569095730781555,
+    "shares": 84691,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-02-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.396801620721817,
+    "shares": 76044,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-03-13",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.4201451539993286,
+    "shares": 76044,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-06-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.4644310474395752,
+    "shares": 68410,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-06-23",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.44515901803970337,
+    "shares": 68410,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-09-04",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.4786734879016876,
+    "shares": 63896,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-09-12",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.4569263756275177,
+    "shares": 63896,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-11-04",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.48106321692466736,
+    "shares": 60979,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-12-10",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.48645874857902527,
+    "shares": 60979,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-02-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.5351768732070923,
+    "shares": 55366,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-03-25",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.5068824291229248,
+    "shares": 55366,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-09-30",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.5991111993789673,
+    "shares": 47105,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-12-18",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.784119725227356,
+    "shares": 47105,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-03-18",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 0.8278681039810181,
+    "shares": 43563,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-04-29",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.8699836134910583,
+    "shares": 43563,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-05-13",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 1.0034316778182983,
+    "shares": 37586,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-06-24",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 1.122647762298584,
+    "shares": 37586,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-07-08",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 1.2483410835266113,
+    "shares": 33443,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-09-09",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 1.46387779712677,
+    "shares": 33443,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-10-25",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 1.7676223516464233,
+    "shares": 27288,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-12-01",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 2.158707857131958,
+    "shares": 27288,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-12-15",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 2.431379556655884,
+    "shares": 23789,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-02-23",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.4783477783203125,
+    "shares": 23789,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-05-10",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 2.9913294315338135,
+    "shares": 19672,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-06-09",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 3.6934142112731934,
+    "shares": 19672,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-07-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 4.012143611907959,
+    "shares": 17765,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-08-11",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 3.850433588027954,
+    "shares": 17765,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-09-15",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 4.450578689575195,
+    "shares": 15434,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-11-29",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 4.856976509094238,
+    "shares": 15434,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-01-03",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 5.253854274749756,
+    "shares": 14148,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-02-05",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 5.284267902374268,
+    "shares": 14148,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-05-07",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 6.153058052062988,
+    "shares": 12144,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-06-22",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 6.213061809539795,
+    "shares": 12144,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-08-14",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 6.472529888153076,
+    "shares": 11646,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-08-17",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 6.061295032501221,
+    "shares": 11646,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-08-23",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 6.606470584869385,
+    "shares": 10757,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-10-10",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 6.08616304397583,
+    "shares": 10757,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-11-16",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 4.073213577270508,
+    "shares": 16211,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-01-07",
+    "ticker": "NVDA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 3.5558180809020996,
+    "shares": 16211,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-07-01",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 4.12938928604126,
+    "shares": 17818,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-08-01",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 4.098325729370117,
+    "shares": 17818,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-09-05",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 4.4710307121276855,
+    "shares": 16345,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-09-20",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 4.295661449432373,
+    "shares": 16345,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-10-15",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 4.884701251983643,
+    "shares": 14433,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-01-27",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 5.979379177093506,
+    "shares": 14433,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-02-10",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 6.546201229095459,
+    "shares": 12942,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-02-27",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 6.291819095611572,
+    "shares": 12942,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-05-15",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 8.459582328796387,
+    "shares": 9664,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-09-03",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 12.977524757385254,
+    "shares": 9664,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-11-06",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 14.519510269165039,
+    "shares": 8337,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-11-10",
+    "ticker": "NVDA",
+    "action": "SELL_STOP_LOSS",
+    "price": 12.732739448547363,
+    "shares": 8337,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-02-08",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 14.400873184204102,
+    "shares": 7475,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-02-25",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 13.272592544555664,
+    "shares": 7475,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-04-12",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 15.174334526062012,
+    "shares": 6593,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-05-04",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 14.31854248046875,
+    "shares": 6593,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-05-28",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 16.20747947692871,
+    "shares": 5860,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-07-15",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 18.927358627319336,
+    "shares": 5860,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-08-20",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 20.773319244384766,
+    "shares": 5262,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-09-20",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 21.073427200317383,
+    "shares": 5262,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-10-26",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 24.67066764831543,
+    "shares": 4488,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-12-03",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 30.639217376708984,
+    "shares": 4488,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-06-30",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 15.138216972351074,
+    "shares": 8908,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-07-18",
+    "ticker": "NVDA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 16.07892608642578,
+    "shares": 8908,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-08-26",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 16.237709045410156,
+    "shares": 7840,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-10-24",
+    "ticker": "NVDA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 12.585465431213379,
+    "shares": 7840,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-01-17",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 17.68750762939453,
+    "shares": 8654,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-02-17",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 21.3704891204834,
+    "shares": 8654,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-02-23",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 23.644624710083008,
+    "shares": 7687,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-05-31",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 37.8094482421875,
+    "shares": 7687,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-06-14",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 42.97353744506836,
+    "shares": 6510,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-08-09",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 42.53078079223633,
+    "shares": 6510,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-01-08",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 52.23338317871094,
+    "shares": 5306,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-02-20",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 69.42593383789062,
+    "shares": 5306,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-02-22",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 78.5085220336914,
+    "shares": 4576,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-04-04",
+    "ticker": "NVDA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 85.87677001953125,
+    "shares": 4576,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-05-23",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 103.7649154663086,
+    "shares": 3754,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-06-21",
+    "ticker": "NVDA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 126.53881072998047,
+    "shares": 3754,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-01-06",
+    "ticker": "NVDA",
+    "action": "BUY",
+    "price": 149.41624450683594,
+    "shares": 3122,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-01-13",
+    "ticker": "NVDA",
+    "action": "SELL_STOP_LOSS",
+    "price": 133.21774291992188,
+    "shares": 3122,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-04-03",
+    "ticker": "NVDA",
+    "action": "SHORT_SELL",
+    "price": 101.80000305175781,
+    "shares": 4136,
+    "position_type": "short"
+  },
+  {
+    "date": "2025-04-09",
+    "ticker": "NVDA",
+    "action": "COVER_STOP_LOSS",
+    "price": 114.33000183105469,
+    "shares": 4136,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-01-05",
+    "ticker": "PLTR",
+    "action": "SHORT_SELL",
+    "price": 16.959999084472656,
+    "shares": 132,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-01-31",
+    "ticker": "PLTR",
+    "action": "COVER_TRAILING_STOP",
+    "price": 13.710000038146973,
+    "shares": 132,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-02-18",
+    "ticker": "PLTR",
+    "action": "SHORT_SELL",
+    "price": 11.020000457763672,
+    "shares": 239,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-03-01",
+    "ticker": "PLTR",
+    "action": "COVER_STOP_LOSS",
+    "price": 12.180000305175781,
+    "shares": 239,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-04-26",
+    "ticker": "PLTR",
+    "action": "SHORT_SELL",
+    "price": 11.119999885559082,
+    "shares": 214,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-05-13",
+    "ticker": "PLTR",
+    "action": "COVER_TRAILING_STOP",
+    "price": 8.34000015258789,
+    "shares": 214,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-11-07",
+    "ticker": "PLTR",
+    "action": "SHORT_SELL",
+    "price": 7.019999980926514,
+    "shares": 416,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-11-11",
+    "ticker": "PLTR",
+    "action": "COVER_STOP_LOSS",
+    "price": 8.40999984741211,
+    "shares": 416,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-12-19",
+    "ticker": "PLTR",
+    "action": "SHORT_SELL",
+    "price": 6.349999904632568,
+    "shares": 378,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-01-10",
+    "ticker": "PLTR",
+    "action": "COVER_FAKE_BREAK",
+    "price": 6.699999809265137,
+    "shares": 378,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-04-14",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 8.8100004196167,
+    "shares": 259,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-04-25",
+    "ticker": "PLTR",
+    "action": "SELL_STOP_LOSS",
+    "price": 7.739999771118164,
+    "shares": 259,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-05-10",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 9.9399995803833,
+    "shares": 204,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-06-20",
+    "ticker": "PLTR",
+    "action": "SELL_TRAILING_STOP",
+    "price": 15.789999961853027,
+    "shares": 204,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-07-18",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 18.079999923706055,
+    "shares": 171,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-07-27",
+    "ticker": "PLTR",
+    "action": "SELL_STOP_LOSS",
+    "price": 16.149999618530273,
+    "shares": 171,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-07-31",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 19.84000015258789,
+    "shares": 141,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-08-08",
+    "ticker": "PLTR",
+    "action": "SELL_STOP_LOSS",
+    "price": 17.040000915527344,
+    "shares": 141,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-10-09",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 17.610000610351562,
+    "shares": 139,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-10-25",
+    "ticker": "PLTR",
+    "action": "SELL_STOP_LOSS",
+    "price": 15.59000015258789,
+    "shares": 139,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-11-03",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 18.889999389648438,
+    "shares": 116,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-12-04",
+    "ticker": "PLTR",
+    "action": "SELL_FAKE_BREAK",
+    "price": 18.399999618530273,
+    "shares": 116,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-02-06",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 21.8700008392334,
+    "shares": 98,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-04-01",
+    "ticker": "PLTR",
+    "action": "SELL_FAKE_BREAK",
+    "price": 22.860000610351562,
+    "shares": 98,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-05-06",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 25.209999084472656,
+    "shares": 88,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-05-07",
+    "ticker": "PLTR",
+    "action": "SELL_STOP_LOSS",
+    "price": 21.399999618530273,
+    "shares": 88,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-06-06",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 23.790000915527344,
+    "shares": 81,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-07-24",
+    "ticker": "PLTR",
+    "action": "SELL_FAKE_BREAK",
+    "price": 26.600000381469727,
+    "shares": 81,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-08-09",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 30.010000228881836,
+    "shares": 71,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-10-31",
+    "ticker": "PLTR",
+    "action": "SELL_TRAILING_STOP",
+    "price": 41.560001373291016,
+    "shares": 71,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-11-05",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 51.130001068115234,
+    "shares": 56,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-11-18",
+    "ticker": "PLTR",
+    "action": "SELL_TRAILING_STOP",
+    "price": 61.2599983215332,
+    "shares": 56,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-12-06",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 76.33999633789062,
+    "shares": 44,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-01-07",
+    "ticker": "PLTR",
+    "action": "SELL_FAKE_BREAK",
+    "price": 69.98999786376953,
+    "shares": 44,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-02-04",
+    "ticker": "PLTR",
+    "action": "BUY",
+    "price": 103.83000183105469,
+    "shares": 30,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-02-24",
+    "ticker": "PLTR",
+    "action": "SELL_STOP_LOSS",
+    "price": 90.68000030517578,
+    "shares": 30,
+    "position_type": "long"
+  },
+  {
+    "date": "2008-04-16",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.6000000238418579,
+    "shares": 2249,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-04-17",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.6666669845581055,
+    "shares": 2249,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-09-04",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.4666669964790344,
+    "shares": 2603,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-09-08",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.5333330035209656,
+    "shares": 2603,
+    "position_type": "short"
+  },
+  {
+    "date": "2009-03-24",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.5333330035209656,
+    "shares": 1985,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-04-02",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.8666669726371765,
+    "shares": 1985,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-05-13",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.1333329677581787,
+    "shares": 1459,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-07-06",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 2.0,
+    "shares": 1459,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-07-14",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 2.933332920074463,
+    "shares": 951,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-07-21",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 4.0,
+    "shares": 951,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-02-10",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.2666670083999634,
+    "shares": 2925,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-03-24",
+    "ticker": "CELH",
+    "action": "COVER_FAKE_BREAK",
+    "price": 1.196666955947876,
+    "shares": 2925,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-05-13",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.9200000166893005,
+    "shares": 4227,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-06-25",
+    "ticker": "CELH",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.6100000143051147,
+    "shares": 4227,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-08-30",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.5833330154418945,
+    "shares": 8689,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-10-01",
+    "ticker": "CELH",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.47666698694229126,
+    "shares": 8689,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-11-11",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.28999999165534973,
+    "shares": 20355,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-11-23",
+    "ticker": "CELH",
+    "action": "COVER_TRAILING_STOP",
+    "price": 0.2199999988079071,
+    "shares": 20355,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-12-14",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.18000000715255737,
+    "shares": 39919,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-12-17",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.20999999344348907,
+    "shares": 39919,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-12-23",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.12333299964666367,
+    "shares": 49521,
+    "position_type": "short"
+  },
+  {
+    "date": "2010-12-29",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.14000000059604645,
+    "shares": 49521,
+    "position_type": "short"
+  },
+  {
+    "date": "2011-01-18",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.09666699916124344,
+    "shares": 55498,
+    "position_type": "short"
+  },
+  {
+    "date": "2011-01-31",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.10666699707508087,
+    "shares": 55498,
+    "position_type": "short"
+  },
+  {
+    "date": "2011-08-08",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.06666699796915054,
+    "shares": 72979,
+    "position_type": "short"
+  },
+  {
+    "date": "2011-08-09",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.07666700333356857,
+    "shares": 72979,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-03-20",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.15000000596046448,
+    "shares": 28056,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-03-22",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.1333329975605011,
+    "shares": 28056,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-06-12",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.10999999940395355,
+    "shares": 34433,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-06-13",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.086667001247406,
+    "shares": 34433,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-07-10",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.12333299964666367,
+    "shares": 24848,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-07-17",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.10666699707508087,
+    "shares": 24848,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-08-21",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.1933329999446869,
+    "shares": 13923,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-08-28",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.16666699945926666,
+    "shares": 13923,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-07-21",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.25,
+    "shares": 9431,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-07-25",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.2199999988079071,
+    "shares": 9431,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-03-26",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.41666701436042786,
+    "shares": 5047,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-04-17",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.47999998927116394,
+    "shares": 5047,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-04-23",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.7666670083999634,
+    "shares": 3118,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-04-28",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 0.9900000095367432,
+    "shares": 3118,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-06-22",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.0033329725265503,
+    "shares": 3007,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-06-23",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.8466669917106628,
+    "shares": 3007,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-08-07",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.913332998752594,
+    "shares": 2839,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-08-11",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.7666670083999634,
+    "shares": 2839,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-10-02",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.7633330225944519,
+    "shares": 2906,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-10-07",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.6833329796791077,
+    "shares": 2906,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-11-20",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.5833330154418945,
+    "shares": 3444,
+    "position_type": "short"
+  },
+  {
+    "date": "2015-12-14",
+    "ticker": "CELH",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.5566669702529907,
+    "shares": 3444,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-04-27",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.7799999713897705,
+    "shares": 2682,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-06-24",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.7966669797897339,
+    "shares": 2682,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-11-03",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 0.6433330178260803,
+    "shares": 3314,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-11-11",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.7099999785423279,
+    "shares": 3314,
+    "position_type": "short"
+  },
+  {
+    "date": "2017-01-09",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 0.9666669964790344,
+    "shares": 2000,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-02-08",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 1.136667013168335,
+    "shares": 2000,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-03-10",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.4566669464111328,
+    "shares": 1537,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-03-21",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 1.2999999523162842,
+    "shares": 1537,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-06-19",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.4666670560836792,
+    "shares": 1379,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-07-05",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 1.386667013168335,
+    "shares": 1379,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-08-15",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.4533330202102661,
+    "shares": 1323,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-09-14",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 1.9266669750213623,
+    "shares": 1323,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-01-17",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.8233330249786377,
+    "shares": 1364,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-02-09",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 1.6699999570846558,
+    "shares": 1364,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-03-28",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.350000023841858,
+    "shares": 1702,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-04-02",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 1.4933329820632935,
+    "shares": 1702,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-05-14",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.600000023841858,
+    "shares": 1299,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-06-04",
+    "ticker": "CELH",
+    "action": "COVER_FAKE_BREAK",
+    "price": 1.649999976158142,
+    "shares": 1299,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-07-27",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.399999976158142,
+    "shares": 1443,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-09-11",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 1.553333044052124,
+    "shares": 1443,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-10-01",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.3066669702529907,
+    "shares": 1394,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-10-17",
+    "ticker": "CELH",
+    "action": "COVER_FAKE_BREAK",
+    "price": 1.350000023841858,
+    "shares": 1394,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-12-10",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.2333329916000366,
+    "shares": 1433,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-01-08",
+    "ticker": "CELH",
+    "action": "COVER_FAKE_BREAK",
+    "price": 1.2599999904632568,
+    "shares": 1433,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-02-14",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 1.1433329582214355,
+    "shares": 1515,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-03-13",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 1.2933330535888672,
+    "shares": 1515,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-07-16",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.5666669607162476,
+    "shares": 975,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-08-07",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 1.5,
+    "shares": 975,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-01-16",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.6833330392837524,
+    "shares": 873,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-02-25",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 1.9933329820632935,
+    "shares": 873,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-05-11",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 1.8233330249786377,
+    "shares": 939,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-05-28",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 2.896667003631592,
+    "shares": 939,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-06-23",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 3.700000047683716,
+    "shares": 708,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-08-04",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 4.75,
+    "shares": 708,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-08-05",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 5.216667175292969,
+    "shares": 630,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-08-10",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 6.610000133514404,
+    "shares": 630,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-08-19",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 8.460000038146973,
+    "shares": 482,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-08-21",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 7.099999904632568,
+    "shares": 482,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-11-12",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 10.653332710266113,
+    "shares": 327,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-12-29",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 13.626667022705078,
+    "shares": 327,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-12-31",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 16.770000457763672,
+    "shares": 260,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-01-21",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 21.059999465942383,
+    "shares": 260,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-04-26",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 21.583332061767578,
+    "shares": 248,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-04-29",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 18.92333221435547,
+    "shares": 248,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-06-02",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 25.489999771118164,
+    "shares": 187,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-06-10",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 20.583332061767578,
+    "shares": 187,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-08-31",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 27.253332138061523,
+    "shares": 144,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-11-09",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 33.836666107177734,
+    "shares": 144,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-01-07",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 18.200000762939453,
+    "shares": 263,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-01-28",
+    "ticker": "CELH",
+    "action": "COVER_TRAILING_STOP",
+    "price": 15.016667366027832,
+    "shares": 263,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-05-09",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 13.963333129882812,
+    "shares": 397,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-05-11",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 15.80666732788086,
+    "shares": 397,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-07-05",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 25.01333236694336,
+    "shares": 195,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-08-05",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 32.87333297729492,
+    "shares": 195,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-08-23",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 37.68000030517578,
+    "shares": 166,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-09-01",
+    "ticker": "CELH",
+    "action": "SELL_STOP_LOSS",
+    "price": 33.063331604003906,
+    "shares": 166,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-11-23",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 34.63999938964844,
+    "shares": 161,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-12-15",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 35.71333312988281,
+    "shares": 161,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-06-13",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 49.83000183105469,
+    "shares": 115,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-08-02",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 46.4466667175293,
+    "shares": 115,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-08-09",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 57.55666732788086,
+    "shares": 93,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-09-20",
+    "ticker": "CELH",
+    "action": "SELL_FAKE_BREAK",
+    "price": 60.470001220703125,
+    "shares": 93,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-02-27",
+    "ticker": "CELH",
+    "action": "BUY",
+    "price": 67.5199966430664,
+    "shares": 83,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-03-18",
+    "ticker": "CELH",
+    "action": "SELL_TRAILING_STOP",
+    "price": 89.54000091552734,
+    "shares": 83,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-08-05",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 41.349998474121094,
+    "shares": 176,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-10-10",
+    "ticker": "CELH",
+    "action": "COVER_TRAILING_STOP",
+    "price": 34.90999984741211,
+    "shares": 176,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-11-12",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 26.959999084472656,
+    "shares": 307,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-11-25",
+    "ticker": "CELH",
+    "action": "COVER_STOP_LOSS",
+    "price": 29.75,
+    "shares": 307,
+    "position_type": "short"
+  },
+  {
+    "date": "2025-01-23",
+    "ticker": "CELH",
+    "action": "SHORT_SELL",
+    "price": 25.040000915527344,
+    "shares": 300,
+    "position_type": "short"
+  },
+  {
+    "date": "2025-02-19",
+    "ticker": "CELH",
+    "action": "COVER_FAKE_BREAK",
+    "price": 26.09000015258789,
+    "shares": 300,
+    "position_type": "short"
+  },
+  {
+    "date": "2011-11-11",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 2.2426669597625732,
+    "shares": 401,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-12-08",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.059333086013794,
+    "shares": 401,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-02-14",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 2.2113330364227295,
+    "shares": 377,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-04-10",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.1640000343322754,
+    "shares": 377,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-07-25",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 1.9299999475479126,
+    "shares": 423,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-08-13",
+    "ticker": "TSLA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 2.078000068664551,
+    "shares": 423,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-09-10",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 1.824666976928711,
+    "shares": 417,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-09-14",
+    "ticker": "TSLA",
+    "action": "COVER_STOP_LOSS",
+    "price": 2.0260000228881836,
+    "shares": 417,
+    "position_type": "short"
+  },
+  {
+    "date": "2012-12-11",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 2.3519999980926514,
+    "shares": 291,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-01-11",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.194000005722046,
+    "shares": 291,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-01-23",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 2.4000000953674316,
+    "shares": 268,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-02-15",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.4693329334259033,
+    "shares": 268,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-04-01",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 2.9286670684814453,
+    "shares": 225,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-05-07",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 3.700666904449463,
+    "shares": 225,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-05-09",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 4.626667022705078,
+    "shares": 176,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-05-29",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 6.975333213806152,
+    "shares": 176,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-07-01",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 7.811999797821045,
+    "shares": 152,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-07-16",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 7.269999980926514,
+    "shares": 152,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-08-08",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 10.232000350952148,
+    "shares": 109,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-10-02",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 12.063332557678223,
+    "shares": 109,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-02-10",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 13.104000091552734,
+    "shares": 98,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-03-10",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 15.922666549682617,
+    "shares": 98,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-06-16",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 14.973999977111816,
+    "shares": 103,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-07-07",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 14.843999862670898,
+    "shares": 103,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-08-01",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 15.5513334274292,
+    "shares": 98,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-09-15",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 16.923999786376953,
+    "shares": 98,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-12-16",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 13.187333106994629,
+    "shares": 125,
+    "position_type": "short"
+  },
+  {
+    "date": "2014-12-18",
+    "ticker": "TSLA",
+    "action": "COVER_STOP_LOSS",
+    "price": 14.550666809082031,
+    "shares": 125,
+    "position_type": "short"
+  },
+  {
+    "date": "2015-03-27",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 12.333333015441895,
+    "shares": 121,
+    "position_type": "short"
+  },
+  {
+    "date": "2015-04-08",
+    "ticker": "TSLA",
+    "action": "COVER_STOP_LOSS",
+    "price": 13.844667434692383,
+    "shares": 121,
+    "position_type": "short"
+  },
+  {
+    "date": "2015-06-08",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 17.086000442504883,
+    "shares": 78,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-07-08",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 16.997333526611328,
+    "shares": 78,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-01-08",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 14.066666603088379,
+    "shares": 94,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-02-17",
+    "ticker": "TSLA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 11.245332717895508,
+    "shares": 94,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-06-08",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 15.701333045959473,
+    "shares": 99,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-06-14",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 14.330666542053223,
+    "shares": 99,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-10-17",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 12.93066692352295,
+    "shares": 111,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-11-23",
+    "ticker": "TSLA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 12.87600040435791,
+    "shares": 111,
+    "position_type": "short"
+  },
+  {
+    "date": "2017-02-09",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 17.946666717529297,
+    "shares": 80,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-02-23",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 17.06599998474121,
+    "shares": 80,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-03-27",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 18.014667510986328,
+    "shares": 77,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-05-04",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 19.69733238220215,
+    "shares": 77,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-05-30",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 22.34000015258789,
+    "shares": 67,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-06-27",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 24.158000946044922,
+    "shares": 67,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-09-14",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 25.176000595092773,
+    "shares": 64,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-09-25",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 22.999332427978516,
+    "shares": 64,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-02-09",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 20.69466781616211,
+    "shares": 71,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-02-22",
+    "ticker": "TSLA",
+    "action": "COVER_STOP_LOSS",
+    "price": 23.077999114990234,
+    "shares": 71,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-03-27",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 18.61199951171875,
+    "shares": 71,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-05-02",
+    "ticker": "TSLA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 20.07666778564453,
+    "shares": 71,
+    "position_type": "short"
+  },
+  {
+    "date": "2018-08-07",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 25.30466651916504,
+    "shares": 49,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-08-15",
+    "ticker": "TSLA",
+    "action": "SELL_STOP_LOSS",
+    "price": 22.57933235168457,
+    "shares": 49,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-03-04",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 19.02400016784668,
+    "shares": 58,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-04-01",
+    "ticker": "TSLA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 19.278667449951172,
+    "shares": 58,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-04-25",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 16.5086669921875,
+    "shares": 67,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-06-06",
+    "ticker": "TSLA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 13.729999542236328,
+    "shares": 67,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-08-14",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 14.641332626342773,
+    "shares": 87,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-09-10",
+    "ticker": "TSLA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 15.702667236328125,
+    "shares": 87,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-10-24",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 19.978666305541992,
+    "shares": 59,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-11-26",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 21.92799949645996,
+    "shares": 59,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-12-16",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 25.433332443237305,
+    "shares": 50,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-02-05",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 48.97999954223633,
+    "shares": 50,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-04-14",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 47.32600021362305,
+    "shares": 49,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-06-12",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 62.35200119018555,
+    "shares": 49,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-06-30",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 71.98733520507812,
+    "shares": 41,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-07-23",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 100.87133026123047,
+    "shares": 41,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-08-17",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 122.3759994506836,
+    "shares": 33,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-09-02",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 149.1233367919922,
+    "shares": 33,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-11-18",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 162.2133331298828,
+    "shares": 30,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-12-09",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 201.4933319091797,
+    "shares": 30,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-12-18",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 231.6666717529297,
+    "shares": 25,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-01-11",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 270.39666748046875,
+    "shares": 25,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-04-13",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 254.10667419433594,
+    "shares": 26,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-04-29",
+    "ticker": "TSLA",
+    "action": "SELL_STOP_LOSS",
+    "price": 225.6666717529297,
+    "shares": 26,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-09-07",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 250.97332763671875,
+    "shares": 24,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-11-08",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 387.64666748046875,
+    "shares": 24,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-01-03",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 399.9266662597656,
+    "shares": 22,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-01-06",
+    "ticker": "TSLA",
+    "action": "SELL_STOP_LOSS",
+    "price": 354.8999938964844,
+    "shares": 22,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-04-26",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 292.1400146484375,
+    "shares": 28,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-05-26",
+    "ticker": "TSLA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 235.91000366210938,
+    "shares": 28,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-11-08",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 191.3000030517578,
+    "shares": 50,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-01-12",
+    "ticker": "TSLA",
+    "action": "COVER_TRAILING_STOP",
+    "price": 123.55999755859375,
+    "shares": 50,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-05-26",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 193.1699981689453,
+    "shares": 65,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-06-23",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 256.6000061035156,
+    "shares": 65,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-09-11",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 273.5799865722656,
+    "shares": 59,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-09-22",
+    "ticker": "TSLA",
+    "action": "SELL_STOP_LOSS",
+    "price": 244.8800048828125,
+    "shares": 59,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-01-25",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 182.6300048828125,
+    "shares": 81,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-02-15",
+    "ticker": "TSLA",
+    "action": "COVER_FAKE_BREAK",
+    "price": 200.4499969482422,
+    "shares": 81,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-03-14",
+    "ticker": "TSLA",
+    "action": "SHORT_SELL",
+    "price": 162.5,
+    "shares": 83,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-03-27",
+    "ticker": "TSLA",
+    "action": "COVER_STOP_LOSS",
+    "price": 179.8300018310547,
+    "shares": 83,
+    "position_type": "short"
+  },
+  {
+    "date": "2024-09-05",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 230.1699981689453,
+    "shares": 53,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-10-11",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 217.8000030517578,
+    "shares": 53,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-10-25",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 269.19000244140625,
+    "shares": 43,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-11-14",
+    "ticker": "TSLA",
+    "action": "SELL_TRAILING_STOP",
+    "price": 311.17999267578125,
+    "shares": 43,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-12-11",
+    "ticker": "TSLA",
+    "action": "BUY",
+    "price": 424.7699890136719,
+    "shares": 31,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-12-31",
+    "ticker": "TSLA",
+    "action": "SELL_FAKE_BREAK",
+    "price": 403.8399963378906,
+    "shares": 31,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-02-04",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.38093721866607666,
+    "shares": 3543,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-02-19",
+    "ticker": "AAPL",
+    "action": "SELL_STOP_LOSS",
+    "price": 0.3399132192134857,
+    "shares": 3543,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-04-16",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.3867974877357483,
+    "shares": 3152,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-04-24",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.35719379782676697,
+    "shares": 3152,
+    "position_type": "long"
+  },
+  {
+    "date": "2002-06-26",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 0.24869868159294128,
+    "shares": 4564,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-07-05",
+    "ticker": "AAPL",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.28160789608955383,
+    "shares": 4564,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-07-18",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 0.2252565175294876,
+    "shares": 4439,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-08-15",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.23457296192646027,
+    "shares": 4439,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-10-08",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 0.20557086169719696,
+    "shares": 4683,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-10-15",
+    "ticker": "AAPL",
+    "action": "COVER_STOP_LOSS",
+    "price": 0.22781048715114594,
+    "shares": 4683,
+    "position_type": "short"
+  },
+  {
+    "date": "2002-12-04",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 0.22495518624782562,
+    "shares": 3863,
+    "position_type": "short"
+  },
+  {
+    "date": "2003-01-29",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.22435437142848969,
+    "shares": 3863,
+    "position_type": "short"
+  },
+  {
+    "date": "2003-04-11",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 0.19835735857486725,
+    "shares": 4391,
+    "position_type": "short"
+  },
+  {
+    "date": "2003-04-29",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 0.21128061413764954,
+    "shares": 4391,
+    "position_type": "short"
+  },
+  {
+    "date": "2003-06-18",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.28731825947761536,
+    "shares": 2854,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-08-06",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.29498201608657837,
+    "shares": 2854,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-08-21",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.3257874846458435,
+    "shares": 2577,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-09-24",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.3203774690628052,
+    "shares": 2577,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-10-07",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.34892913699150085,
+    "shares": 2370,
+    "position_type": "long"
+  },
+  {
+    "date": "2003-11-10",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.32909294962882996,
+    "shares": 2370,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-01-05",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.3331507742404938,
+    "shares": 2356,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-02-04",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.32744020223617554,
+    "shares": 2356,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-03-04",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.37808194756507874,
+    "shares": 2044,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-04-30",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.38739845156669617,
+    "shares": 2044,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-06-02",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.43458399176597595,
+    "shares": 1817,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-07-02",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 0.46704214811325073,
+    "shares": 1817,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-08-25",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.4966456890106201,
+    "shares": 1697,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-11-11",
+    "ticker": "AAPL",
+    "action": "SELL_TAKE_PROFIT",
+    "price": 0.8309983611106873,
+    "shares": 1697,
+    "position_type": "long"
+  },
+  {
+    "date": "2004-11-22",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 0.9219123721122742,
+    "shares": 1468,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-03-03",
+    "ticker": "AAPL",
+    "action": "SELL_TRAILING_STOP",
+    "price": 1.255963921546936,
+    "shares": 1468,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-08-12",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 1.385498285293579,
+    "shares": 1295,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-10-10",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 1.5138297080993652,
+    "shares": 1295,
+    "position_type": "long"
+  },
+  {
+    "date": "2005-10-20",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 1.687242031097412,
+    "shares": 1152,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-01-19",
+    "ticker": "AAPL",
+    "action": "SELL_TRAILING_STOP",
+    "price": 2.3754818439483643,
+    "shares": 1152,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-05-31",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 1.7963391542434692,
+    "shares": 1479,
+    "position_type": "short"
+  },
+  {
+    "date": "2006-07-20",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 1.8182780742645264,
+    "shares": 1479,
+    "position_type": "short"
+  },
+  {
+    "date": "2006-09-26",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 2.332505702972412,
+    "shares": 1127,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-11-03",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.3529419898986816,
+    "shares": 1127,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-11-09",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 2.504716157913208,
+    "shares": 1057,
+    "position_type": "long"
+  },
+  {
+    "date": "2006-12-07",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.6159157752990723,
+    "shares": 1057,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-01-09",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 2.7821152210235596,
+    "shares": 990,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-01-26",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 2.5660269260406494,
+    "shares": 990,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-04-26",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 2.970555543899536,
+    "shares": 862,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-07-24",
+    "ticker": "AAPL",
+    "action": "SELL_TRAILING_STOP",
+    "price": 4.054009437561035,
+    "shares": 862,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-07-26",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 4.387912273406982,
+    "shares": 775,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-07-31",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 3.9599409103393555,
+    "shares": 775,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-09-04",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 4.332611560821533,
+    "shares": 716,
+    "position_type": "long"
+  },
+  {
+    "date": "2007-11-08",
+    "ticker": "AAPL",
+    "action": "SELL_TRAILING_STOP",
+    "price": 5.273608207702637,
+    "shares": 716,
+    "position_type": "long"
+  },
+  {
+    "date": "2008-09-29",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 3.163503408432007,
+    "shares": 1173,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-10-30",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 3.337217092514038,
+    "shares": 1173,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-11-20",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 2.4190609455108643,
+    "shares": 1458,
+    "position_type": "short"
+  },
+  {
+    "date": "2008-11-24",
+    "ticker": "AAPL",
+    "action": "COVER_STOP_LOSS",
+    "price": 2.793537139892578,
+    "shares": 1458,
+    "position_type": "short"
+  },
+  {
+    "date": "2009-03-06",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 2.5636227130889893,
+    "shares": 1184,
+    "position_type": "short"
+  },
+  {
+    "date": "2009-03-12",
+    "ticker": "AAPL",
+    "action": "COVER_STOP_LOSS",
+    "price": 2.8957207202911377,
+    "shares": 1184,
+    "position_type": "short"
+  },
+  {
+    "date": "2009-04-23",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 3.7687952518463135,
+    "shares": 711,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-05-13",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 3.591174602508545,
+    "shares": 711,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-06-05",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 4.347939491271973,
+    "shares": 590,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-06-23",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 4.027561187744141,
+    "shares": 590,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-07-17",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 4.560721397399902,
+    "shares": 525,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-08-17",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 4.796348571777344,
+    "shares": 525,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-09-16",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 5.4659552574157715,
+    "shares": 459,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-10-01",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 5.435600757598877,
+    "shares": 459,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-10-20",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 5.973568439483643,
+    "shares": 418,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-12-01",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 5.919774532318115,
+    "shares": 418,
+    "position_type": "long"
+  },
+  {
+    "date": "2009-12-28",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 6.359765529632568,
+    "shares": 389,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-01-12",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 6.242852687835693,
+    "shares": 389,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-03-05",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 6.580365180969238,
+    "shares": 370,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-05-06",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 7.400845527648926,
+    "shares": 370,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-09-16",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 8.312084197998047,
+    "shares": 326,
+    "position_type": "long"
+  },
+  {
+    "date": "2010-11-16",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 9.064043045043945,
+    "shares": 326,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-01-03",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 9.904958724975586,
+    "shares": 295,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-02-22",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 10.176647186279297,
+    "shares": 295,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-07-25",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 11.976598739624023,
+    "shares": 250,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-08-04",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 11.341546058654785,
+    "shares": 250,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-09-16",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 12.036701202392578,
+    "shares": 237,
+    "position_type": "long"
+  },
+  {
+    "date": "2011-09-30",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 11.460262298583984,
+    "shares": 237,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-01-25",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 13.424001693725586,
+    "shares": 203,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-04-16",
+    "ticker": "AAPL",
+    "action": "SELL_TRAILING_STOP",
+    "price": 17.43533706665039,
+    "shares": 203,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-07-05",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 18.331249237060547,
+    "shares": 189,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-07-25",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 17.280256271362305,
+    "shares": 189,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-08-20",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 20.076372146606445,
+    "shares": 163,
+    "position_type": "long"
+  },
+  {
+    "date": "2012-10-01",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 19.902517318725586,
+    "shares": 163,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-01-15",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 14.733620643615723,
+    "shares": 221,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-02-07",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 14.279680252075195,
+    "shares": 221,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-04-17",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 12.284512519836426,
+    "shares": 273,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-04-29",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 13.117713928222656,
+    "shares": 273,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-06-21",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 12.694311141967773,
+    "shares": 248,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-07-11",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 13.117656707763672,
+    "shares": 248,
+    "position_type": "short"
+  },
+  {
+    "date": "2013-10-21",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 16.111257553100586,
+    "shares": 189,
+    "position_type": "long"
+  },
+  {
+    "date": "2013-12-18",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 17.119470596313477,
+    "shares": 189,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-04-24",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 17.753515243530273,
+    "shares": 181,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-06-23",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 19.99208641052246,
+    "shares": 181,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-07-07",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 21.12342071533203,
+    "shares": 170,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-07-17",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 20.489521026611328,
+    "shares": 170,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-07-23",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 21.391950607299805,
+    "shares": 163,
+    "position_type": "long"
+  },
+  {
+    "date": "2014-09-03",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 21.885454177856445,
+    "shares": 163,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-01-28",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 25.617088317871094,
+    "shares": 139,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-03-05",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 28.193891525268555,
+    "shares": 139,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-04-27",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 29.585620880126953,
+    "shares": 131,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-06-05",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 28.813331604003906,
+    "shares": 131,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-07-20",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 29.579299926757812,
+    "shares": 128,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-07-31",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 27.16717529296875,
+    "shares": 128,
+    "position_type": "long"
+  },
+  {
+    "date": "2015-08-21",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 23.793949127197266,
+    "shares": 147,
+    "position_type": "short"
+  },
+  {
+    "date": "2015-09-14",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 25.9425106048584,
+    "shares": 147,
+    "position_type": "short"
+  },
+  {
+    "date": "2015-12-18",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 23.956796646118164,
+    "shares": 135,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-01-22",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 22.91520881652832,
+    "shares": 135,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-04-27",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 22.221738815307617,
+    "shares": 151,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-05-20",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 21.762794494628906,
+    "shares": 151,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-06-24",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 21.346832275390625,
+    "shares": 160,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-07-08",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 22.096485137939453,
+    "shares": 160,
+    "position_type": "short"
+  },
+  {
+    "date": "2016-09-14",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 25.68372917175293,
+    "shares": 129,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-11-01",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 25.6193904876709,
+    "shares": 129,
+    "position_type": "long"
+  },
+  {
+    "date": "2016-12-13",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 26.605512619018555,
+    "shares": 124,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-06-09",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 34.70183563232422,
+    "shares": 124,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-08-02",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 36.60255813598633,
+    "shares": 115,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-09-20",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 36.49607849121094,
+    "shares": 115,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-10-27",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 38.12831497192383,
+    "shares": 110,
+    "position_type": "long"
+  },
+  {
+    "date": "2017-12-29",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 39.715728759765625,
+    "shares": 110,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-05-04",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 43.318031311035156,
+    "shares": 100,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-06-19",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 43.92504119873047,
+    "shares": 100,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-08-01",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 47.664913177490234,
+    "shares": 92,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-10-10",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 51.35954284667969,
+    "shares": 92,
+    "position_type": "long"
+  },
+  {
+    "date": "2018-12-20",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 37.35820770263672,
+    "shares": 126,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-01-30",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 39.363914489746094,
+    "shares": 126,
+    "position_type": "short"
+  },
+  {
+    "date": "2019-05-01",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 50.36267852783203,
+    "shares": 89,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-05-13",
+    "ticker": "AAPL",
+    "action": "SELL_STOP_LOSS",
+    "price": 44.60087966918945,
+    "shares": 89,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-07-31",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 51.16179656982422,
+    "shares": 78,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-08-05",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 46.43082809448242,
+    "shares": 78,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-09-11",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 53.899417877197266,
+    "shares": 68,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-12-03",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 62.73173904418945,
+    "shares": 68,
+    "position_type": "long"
+  },
+  {
+    "date": "2019-12-06",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 65.45426940917969,
+    "shares": 64,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-02-21",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 75.87118530273438,
+    "shares": 64,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-06-10",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 85.74620819091797,
+    "shares": 56,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-07-23",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 90.25173950195312,
+    "shares": 56,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-07-31",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 103.29205322265625,
+    "shares": 49,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-09-18",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 104.04310607910156,
+    "shares": 49,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-10-12",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 121.1434097290039,
+    "shares": 42,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-10-28",
+    "ticker": "AAPL",
+    "action": "SELL_STOP_LOSS",
+    "price": 108.28897857666016,
+    "shares": 42,
+    "position_type": "long"
+  },
+  {
+    "date": "2020-12-01",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 119.71359252929688,
+    "shares": 38,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-02-17",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 127.82540130615234,
+    "shares": 38,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-06-17",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 128.97219848632812,
+    "shares": 37,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-09-14",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 145.17019653320312,
+    "shares": 37,
+    "position_type": "long"
+  },
+  {
+    "date": "2021-10-28",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 149.53163146972656,
+    "shares": 36,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-01-06",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 168.82070922851562,
+    "shares": 36,
+    "position_type": "long"
+  },
+  {
+    "date": "2022-06-13",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 129.797607421875,
+    "shares": 46,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-07-07",
+    "ticker": "AAPL",
+    "action": "COVER_STOP_LOSS",
+    "price": 144.0391387939453,
+    "shares": 46,
+    "position_type": "short"
+  },
+  {
+    "date": "2022-12-15",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 134.7544403076172,
+    "shares": 40,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-01-11",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 131.78294372558594,
+    "shares": 40,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-04-27",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 166.51023864746094,
+    "shares": 33,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-08-03",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 189.27491760253906,
+    "shares": 33,
+    "position_type": "long"
+  },
+  {
+    "date": "2023-10-26",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 165.458740234375,
+    "shares": 37,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-11-06",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 177.69293212890625,
+    "shares": 37,
+    "position_type": "short"
+  },
+  {
+    "date": "2023-12-13",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 196.52085876464844,
+    "shares": 29,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-01-02",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 184.29042053222656,
+    "shares": 29,
+    "position_type": "long"
+  },
+  {
+    "date": "2024-12-16",
+    "ticker": "AAPL",
+    "action": "BUY",
+    "price": 250.43588256835938,
+    "shares": 22,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-01-02",
+    "ticker": "AAPL",
+    "action": "SELL_FAKE_BREAK",
+    "price": 243.26319885253906,
+    "shares": 22,
+    "position_type": "long"
+  },
+  {
+    "date": "2025-04-03",
+    "ticker": "AAPL",
+    "action": "SHORT_SELL",
+    "price": 202.9239044189453,
+    "shares": 26,
+    "position_type": "short"
+  },
+  {
+    "date": "2025-04-30",
+    "ticker": "AAPL",
+    "action": "COVER_FAKE_BREAK",
+    "price": 212.22171020507812,
+    "shares": 26,
+    "position_type": "short"
+  }
+]
