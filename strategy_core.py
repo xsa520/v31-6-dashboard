@@ -48,3 +48,15 @@ def evaluate_short_cover(entry_price, current_price, max_profit, macd_hist, volu
     if current_price > resistance:
         return "COVER_FAKE_BREAK"
     return "HOLD"
+
+# 動態選股（範例，請根據你的邏輯實作）
+def dynamic_stock_selection():
+    # 這裡應該回傳一個list，例如 ["NVDA", "AAPL", ...]
+    # 你可以根據你的選股邏輯實作
+    return ["NVDA", "TSLA", "AAPL"]
+
+# 精選池（範例，請根據你的邏輯實作）
+def get_selected_pool():
+    # 這裡應該回傳一個list，例如 ["NVDA", "PLTR", ...]
+    # 你可以根據你的精選池邏輯實作
+    return ["NVDA", "PLTR", "CELH", "AAPL"]

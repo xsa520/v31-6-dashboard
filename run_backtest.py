@@ -1,3 +1,11 @@
+import pandas as pd
+from strategy_core import (
+    is_bull_market, is_bear_market,
+    evaluate_buy, evaluate_sell,
+    evaluate_short_sell, evaluate_short_cover
+)
+from is_stock_suitable import is_stock_suitable  # 假設你有這個檔案
+
 def run_backtest(test_data, strategy_params):
     # 先檢查是否適合
     if not is_stock_suitable(test_data):
