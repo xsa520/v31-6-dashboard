@@ -29,7 +29,7 @@ def api_dashboard():
     try:
         account_df = pd.read_csv(os.path.join('data', 'account_history.csv'))
         account_history = [
-            {'date': str(row['date']), 'asset': row['capital']}
+            {'date': str(row['date']), 'asset': float(row['capital'])}
             for _, row in account_df.iterrows()
         ]
     except Exception as e:
@@ -39,7 +39,15 @@ def api_dashboard():
     # 讀取交易紀錄
     try:
         trade_df = pd.read_csv(os.path.join('data', 'trade_records.csv'))
-        trade_records = trade_df.to_dict(orient='records')
+        trade_records = []
+        for _, row in trade_df.iterrows():
+            trade_records.append({
+                'date': str(row['date']),
+                'ticker': row['ticker'],
+                'action': row['action'],
+                'price': float(row['price']),
+                'shares': int(row['shares'])
+            })
     except Exception as e:
         print("讀取 trade_records.csv 錯誤：", e)
         trade_records = []
@@ -54,7 +62,7 @@ def api_dashboard():
         try:
             stock_df = account_df[account_df['symbol'] == selected_ticker]
             stock_price = [
-                {'Date': str(row['date']), 'Close': row['capital']}
+                {'Date': str(row['date']), 'Close': float(row['capital'])}
                 for _, row in stock_df.iterrows()
             ]
         except Exception as e:
