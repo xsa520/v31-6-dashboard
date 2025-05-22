@@ -67,7 +67,7 @@ def get_topN_stocks():
             if df is None or df.empty:
                 continue
             cagr = (df['Close'].iloc[-1] / df['Close'].iloc[0]) ** (252/len(df)) - 1
-            score = cagr
+            score = float(cagr)  # <--- 強制轉 float，避免 Series 比較錯誤
             stock_scores.append((symbol, score))
         except Exception as e:
             print(f"過濾/回測異常：{symbol}，錯誤：{e}")
@@ -101,7 +101,7 @@ def update_portfolio(portfolio, topN, prices, capital):
                 send_trade_notify(f"買入 {symbol}，價格：{price}，股數：{shares}")
     return new_portfolio, capital, actions
 if __name__ == "__main__":
-    print("=== 這是 2024/06/09 最新版 ===")
+    print("=== 這是 2024/06/09 追蹤traceback強化+Series比較修正版 ===")
     print("即時虛擬交易啟動，每1分鐘檢查一次...")
 
     # 初始化資本、持倉、紀錄
@@ -166,7 +166,7 @@ if __name__ == "__main__":
             time.sleep(CHECK_INTERVAL)
 
         except Exception as e:
-            print(f"主迴圈異常：{e}")
-            print(traceback.format_exc())  # <--- 這行會印出完整錯誤追蹤
-            send_guardian_notify(f"主迴圈異常：{e}")
+            print("=== 這是完整錯誤追蹤 ===")
+            print(traceback.format_exc())
+            send_guardian_notify(f"主迴圈異常：{e}\n{traceback.format_exc()}")
             time.sleep(CHECK_INTERVAL)
