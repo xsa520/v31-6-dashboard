@@ -98,6 +98,8 @@ def run_backtest():
             for i in range(151, len(df)):
                 row = df.iloc[i]
                 date_str = row.name.strftime("%Y-%m-%d")
+                # 新增：每次檢查資料點都 print
+                print(f"檢查 {symbol} {date_str}，現價：{row['Close']}")
                 ma50 = to_float(row["MA50"])
                 ma150 = to_float(row["MA150"])
                 macd = to_float(row["MACD"])
@@ -208,6 +210,9 @@ def run_backtest():
     with open(os.path.join(DATA_PATH, "trade_records.json"), "w") as f:
         json.dump(trades, f, indent=2)
     print("回測完成，結果已儲存。")
+
+    # 新增推播：無論有無交易都推播
+    send_guardian_notify("✅ V38 策略主流程已執行完畢（不論有無交易）")
 
     # === 新增：自動產生 Dashboard 需要的 CSV 檔案 ===
     pd.DataFrame(capital_trend).to_csv(os.path.join(DATA_PATH, "account_history.csv"), index=False, encoding="utf-8")
