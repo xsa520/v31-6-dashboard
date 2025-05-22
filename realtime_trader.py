@@ -8,7 +8,8 @@ from datetime import datetime
 from telegram_utils import send_trade_notify, send_guardian_notify
 from strategy_core import (
     dynamic_stock_selection, get_selected_pool,
-    evaluate_buy, evaluate_sell, evaluate_short_sell, evaluate_short_cover
+    evaluate_buy, evaluate_sell, evaluate_short_sell, evaluate_short_cover,
+    is_bull_market, is_bear_market
 )
 
 CHECK_INTERVAL = 60  # 每1分鐘檢查一次
@@ -64,7 +65,6 @@ def get_topN_stocks():
             df = yf.download(symbol, period="2y", interval="1d", progress=False, auto_adjust=True)
             if df is None or df.empty:
                 continue
-            # 你可以根據自己的策略設計評分
             cagr = (df['Close'].iloc[-1] / df['Close'].iloc[0]) ** (252/len(df)) - 1
             score = cagr
             stock_scores.append((symbol, score))
@@ -75,10 +75,6 @@ def get_topN_stocks():
     return [x[0] for x in stock_scores[:TOP_N]]
 
 def update_portfolio(portfolio, topN, prices, capital):
-    # portfolio: {symbol: {'shares': int, 'entry_price': float}}
-    # prices: {symbol: 最新價}
-    # topN: 新選股
-    # capital: 可用資金
     new_portfolio = {}
     per_stock_cap = capital / TOP_N
     actions = []
@@ -123,7 +119,14 @@ if __name__ == "__main__":
             for symbol in topN + list(portfolio.keys()):
                 df = fetch_realtime_data(symbol)
                 if df is not None and not df.empty:
-                    prices[symbol] = float(df['Close'].iloc[-1])
+                    row = df.iloc[-1]
+                    # 這裡直接用 to_float 處理所有欄位
+                    ma50 = to_float(row["MA50"])
+                    ma150 = to_float(row["MA150"])
+                    is_bull = is_bull_market(to_float(ma150), to_float(ma50))
+                    is_bear = is_bear_market(to_float(ma150), to_float(ma50))
+                    prices[symbol] = float(row['Close'])
+                    # 你可以根據 is_bull/is_bear 做進階判斷
                 else:
                     print(f"無法取得 {symbol} 最新價，跳過")
             
