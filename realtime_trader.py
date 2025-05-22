@@ -11,7 +11,7 @@ from strategy_core import (
     evaluate_buy, evaluate_sell, evaluate_short_sell, evaluate_short_cover,
     is_bull_market, is_bear_market
 )
-import traceback  # <--- 新增
+import traceback
 
 CHECK_INTERVAL = 60  # 每1分鐘檢查一次
 INITIAL_CAPITAL = 100000
@@ -19,7 +19,15 @@ TOP_N = 5
 DATA_PATH = "data"
 os.makedirs(DATA_PATH, exist_ok=True)
 
+def safe_float(x):
+    if hasattr(x, 'item'):
+        return float(x.item())
+    if hasattr(x, 'iloc') and x.size == 1:
+        return float(x.iloc[0])
+    return float(x)
+
 def to_float(x):
+    # 保留給其他地方用，主流程建議用 safe_float
     if isinstance(x, pd.Series) or isinstance(x, np.ndarray):
         if hasattr(x, 'iloc') and x.size == 1:
             return float(x.iloc[0])
@@ -67,7 +75,7 @@ def get_topN_stocks():
             if df is None or df.empty:
                 continue
             cagr = (df['Close'].iloc[-1] / df['Close'].iloc[0]) ** (252/len(df)) - 1
-            score = float(cagr)  # <--- 強制轉 float，避免 Series 比較錯誤
+            score = safe_float(cagr)  # <--- 使用 safe_float
             stock_scores.append((symbol, score))
         except Exception as e:
             print(f"過濾/回測異常：{symbol}，錯誤：{e}")
@@ -101,7 +109,7 @@ def update_portfolio(portfolio, topN, prices, capital):
                 send_trade_notify(f"買入 {symbol}，價格：{price}，股數：{shares}")
     return new_portfolio, capital, actions
 if __name__ == "__main__":
-    print("=== 這是 2024/06/09 追蹤traceback強化+Series比較修正版 ===")
+    print("=== 這是 2024/06/09 safe_float修正版 ===")
     print("即時虛擬交易啟動，每1分鐘檢查一次...")
 
     # 初始化資本、持倉、紀錄
@@ -122,12 +130,12 @@ if __name__ == "__main__":
                 df = fetch_realtime_data(symbol)
                 if df is not None and not df.empty:
                     row = df.iloc[-1]
-                    # 這裡直接用 to_float 處理所有欄位
+                    # 這裡直接用 safe_float 處理所有欄位
                     ma50 = to_float(row["MA50"])
                     ma150 = to_float(row["MA150"])
                     is_bull = is_bull_market(to_float(ma150), to_float(ma50))
                     is_bear = is_bear_market(to_float(ma150), to_float(ma50))
-                    prices[symbol] = float(row['Close'])
+                    prices[symbol] = safe_float(row['Close'])  # <--- 使用 safe_float
                     # 你可以根據 is_bull/is_bear 做進階判斷
                 else:
                     print(f"無法取得 {symbol} 最新價，跳過")

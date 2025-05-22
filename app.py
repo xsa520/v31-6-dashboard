@@ -2,13 +2,13 @@ import os
 import json
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
+import re
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('V31.6_Web_Dashboard.html')
-
 @app.route('/api/dashboard')
 def api_dashboard():
     # 讀取績效摘要
@@ -35,24 +35,38 @@ def api_dashboard():
     except Exception as e:
         print("讀取 account_history.csv 錯誤：", e)
         account_history = []
-
-    # 讀取交易紀錄
+    # 讀取交易紀錄（改讀 virtual_trade_records.json）
     try:
-        trade_df = pd.read_csv(os.path.join('data', 'trade_records.csv'))
+        with open(os.path.join('data', 'virtual_trade_records.json'), 'r') as f:
+            trade_records_json = json.load(f)
         trade_records = []
-        for _, row in trade_df.iterrows():
+        for row in trade_records_json:
+            # 你主程式的 json 結構是 {"datetime": ..., "action": ...}
+            # 這裡要解析 action 字串
+            action_str = row.get('action', '')
+            m = re.match(r"(買入|賣出) ([A-Z]+)，價格：([0-9.]+)(，股數：([0-9]+))?", action_str)
+            if m:
+                action = m.group(1)
+                ticker = m.group(2)
+                price = float(m.group(3))
+                shares = int(m.group(5)) if m.group(5) else 0
+            else:
+                action = action_str
+                ticker = ''
+                price = 0
+                shares = 0
             trade_records.append({
-                'date': str(row['date']),
-                'ticker': row['ticker'],
-                'action': row['action'],
-                'price': float(row['price']),
-                'shares': int(row['shares'])
+                'date': row.get('datetime', ''),
+                'ticker': ticker,
+                'action': action,
+                'price': price,
+                'shares': shares
             })
     except Exception as e:
-        print("讀取 trade_records.csv 錯誤：", e)
+        print("讀取 virtual_trade_records.json 錯誤：", e)
         trade_records = []
     # 單股績效與下拉選單
-    tickers = sorted(list(set([t['ticker'] for t in trade_records]))) if trade_records else []
+    tickers = sorted(list(set([t['ticker'] for t in trade_records if t['ticker']]))) if trade_records else []
     selected_ticker = request.args.get('ticker') or (tickers[0] if tickers else '')
     stock_cagr = "0.00%"
 
