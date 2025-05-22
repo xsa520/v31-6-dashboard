@@ -11,6 +11,17 @@ from strategy_core import (
     evaluate_short_sell, evaluate_short_cover,
     dynamic_stock_selection, get_selected_pool
 )
+from apscheduler.schedulers.blocking import BlockingScheduler
+import time
+
+def to_float(x):
+    import numpy as np
+    import pandas as pd
+    if isinstance(x, pd.Series) or isinstance(x, np.ndarray):
+        if hasattr(x, 'iloc') and x.size == 1:
+            return float(x.iloc[0])
+        return float(np.ravel(x)[-1])
+    return float(x)
 
 START_DATE = "2000-01-01"
 END_DATE = "2025-05-10"
@@ -76,6 +87,7 @@ def run_backtest():
     print("本次交集選股：", tickers_to_trade)
 
     for symbol in tqdm(tickers_to_trade, desc="回測進度"):
+    for symbol in tqdm(tickers_to_trade, desc="回測進度"):
         try:
             print(f"開始回測 {symbol}")
             df = fetch_data(symbol)
@@ -88,27 +100,26 @@ def run_backtest():
             for i in range(151, len(df)):
                 row = df.iloc[i]
                 date_str = row.name.strftime("%Y-%m-%d")
-                ma50 = float(row["MA50"].item())
-                ma150 = float(row["MA150"].item())
-                macd = float(row["MACD"].item())
-                macd_hist = float(row["MACD_Hist"].item())
-                volume = float(row["Volume"].item())
-                avg_volume = float(row["Volume_MA"].item())
-                price = float(row["Close"].item())
-                rsi = float(row["RSI"].item())
-                prev_high = float(df["High"].iloc[i-20:i].max().item())
-                prev_low = float(df["Low"].iloc[i-20:i].min().item())
-                support = float(df["Low"].iloc[i-10:i].min().item())
-                resistance = float(df["High"].iloc[i-10:i].max().item())
-
-                is_bull = is_bull_market(df["MA150"].iloc[:i+1], df["MA50"].iloc[:i+1])
-                is_bear = is_bear_market(df["MA150"].iloc[:i+1], df["MA50"].iloc[:i+1])
+                ma50 = to_float(row["MA50"])
+                ma150 = to_float(row["MA150"])
+                macd = to_float(row["MACD"])
+                macd_hist = to_float(row["MACD_Hist"])
+                volume = to_float(row["Volume"])
+                avg_volume = to_float(row["Volume_MA"])
+                price = to_float(row["Close"])
+                rsi = to_float(row["RSI"])
+                prev_high = to_float(df["High"].iloc[i-20:i].max())
+                prev_low = to_float(df["Low"].iloc[i-20:i].min())
+                support = to_float(df["Low"].iloc[i-10:i].min())
+                resistance = to_float(df["High"].iloc[i-10:i].max())
+                # 這裡只傳單一值
+                is_bull = is_bull_market(df["MA150"].iloc[i], df["MA50"].iloc[i])
+                is_bear = is_bear_market(df["MA150"].iloc[i], df["MA50"].iloc[i])
 
                 # 黑天鵝警示（範例：當天跌幅超過-8%）
                 if i > 1 and (df['Close'].iloc[i] - df['Close'].iloc[i-1]) / df['Close'].iloc[i-1] < -0.08:
                     send_trade_notify(f"⚠️ 黑天鵝警示：{symbol} {date_str} 單日跌幅超過8%")
                     log_ai_learning("黑天鵝警示", f"{symbol} {date_str} 單日跌幅超過8%")
-
                 if position:
                     if position["type"] == "long":
                         profit = (price - position["entry_price"]) / position["entry_price"]
@@ -194,12 +205,15 @@ def run_backtest():
         except Exception as e:
             send_guardian_notify(f"❌ 策略異常：{symbol}，錯誤：{e}")
             log_ai_learning("策略異常", f"{symbol} {e}")
-
     with open(os.path.join(DATA_PATH, "capital_trend.json"), "w") as f:
         json.dump(capital_trend, f, indent=2)
     with open(os.path.join(DATA_PATH, "trade_records.json"), "w") as f:
         json.dump(trades, f, indent=2)
     print("回測完成，結果已儲存。")
+
+    # === 新增：自動產生 Dashboard 需要的 CSV 檔案 ===
+    pd.DataFrame(capital_trend).to_csv(os.path.join(DATA_PATH, "account_history.csv"), index=False, encoding="utf-8")
+    pd.DataFrame(trades).to_csv(os.path.join(DATA_PATH, "trade_records.csv"), index=False, encoding="utf-8")
 
 def calc_performance(capital_data):
     if not capital_data:
@@ -233,7 +247,7 @@ def calc_performance(capital_data):
     print(f"年化報酬率: {annual_return:.2%}")
     print(f"最大回撤: {max_drawdown:.2%}")
 
-if __name__ == "__main__":
+def job_backtest():
     # 清除舊的交易紀錄
     if os.path.exists(os.path.join(DATA_PATH, "capital_trend.json")):
         os.remove(os.path.join(DATA_PATH, "capital_trend.json"))
@@ -247,5 +261,21 @@ if __name__ == "__main__":
     with open(os.path.join(DATA_PATH, "capital_trend.json"), "r") as f:
         capital_trend = json.load(f)
     calc_performance(capital_trend)
-    # 定期推播AI學習摘要（可改成每周/每月排程）
+    print("本次回測與績效計算已完成。")
+
+def job_ai_summary():
+    # 定期推播AI學習摘要
     push_ai_learning_summary()
+    print("AI學習摘要已推播。")
+
+if __name__ == "__main__":
+    scheduler = BlockingScheduler()
+    # 每天台灣時間 21:10 執行一次回測（美股夏令開盤前10分鐘）
+    scheduler.add_job(job_backtest, 'cron', hour=21, minute=10)
+    # 每天台灣時間 22:00 推播AI學習摘要
+    scheduler.add_job(job_ai_summary, 'cron', hour=22, minute=0)
+    print("排程啟動，等待自動回測與推播...（Ctrl+C 可中止）")
+    try:
+        scheduler.start()
+    except (KeyboardInterrupt, SystemExit):
+        print("排程已中止。")
