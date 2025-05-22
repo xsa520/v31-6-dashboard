@@ -73,7 +73,6 @@ def push_ai_learning_summary():
     for item in log[-10:]:  # 只推播最近10筆
         summary += f"{item['time']} | {item['event']} | {item['detail']}\n"
     send_guardian_notify(summary)
-
 def run_backtest():
     print("run_backtest() 開始執行")
     capital = INITIAL_CAPITAL
@@ -217,7 +216,6 @@ def run_backtest():
     # === 新增：自動產生 Dashboard 需要的 CSV 檔案 ===
     pd.DataFrame(capital_trend).to_csv(os.path.join(DATA_PATH, "account_history.csv"), index=False, encoding="utf-8")
     pd.DataFrame(trades).to_csv(os.path.join(DATA_PATH, "trade_records.csv"), index=False, encoding="utf-8")
-
 def calc_performance(capital_data):
     if not capital_data:
         print("無資本資料")
