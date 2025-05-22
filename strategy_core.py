@@ -8,10 +8,12 @@ def to_float(x):
     return float(x)
 
 def is_bull_market(ma150, ma50):
-    return to_float(ma50) > to_float(ma150)
+    # 強制轉 float，避免 Series 比較錯誤
+    return float(ma50) > float(ma150)
 
 def is_bear_market(ma150, ma50):
-    return to_float(ma50) < to_float(ma150)
+    # 強制轉 float，避免 Series 比較錯誤
+    return float(ma50) < float(ma150)
 def evaluate_buy(price, ma50, ma150, macd, volume, avg_volume, prev_high, rsi):
     price = to_float(price)
     ma50 = to_float(ma50)
@@ -28,6 +30,7 @@ def evaluate_buy(price, ma50, ma150, macd, volume, avg_volume, prev_high, rsi):
         (price > prev_high) and
         (volume > avg_volume * 1.2)
     )
+
 def evaluate_sell(entry_price, current_price, max_profit, macd_hist, volume, avg_volume, support):
     entry_price = to_float(entry_price)
     current_price = to_float(current_price)
@@ -62,6 +65,7 @@ def evaluate_short_sell(price, ma50, ma150, macd, volume, avg_volume, prev_low, 
         (price < prev_low) and
         (volume > avg_volume * 1.2)
     )
+
 def evaluate_short_cover(entry_price, current_price, max_profit, macd_hist, volume, avg_volume, resistance):
     entry_price = to_float(entry_price)
     current_price = to_float(current_price)
