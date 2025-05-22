@@ -48,7 +48,6 @@ def fetch_data(symbol):
     return df.dropna()
 
 def log_ai_learning(event, detail):
-    """AI學習紀錄：每次錯誤或特殊事件都記錄下來"""
     log = []
     if os.path.exists(AI_LEARN_LOG):
         with open(AI_LEARN_LOG, "r") as f:
@@ -72,6 +71,7 @@ def push_ai_learning_summary():
     summary = "V38 AI學習紀錄摘要：\n"
     for item in log[-10:]:  # 只推播最近10筆
         summary += f"{item['time']} | {item['event']} | {item['detail']}\n"
+    print(f"[推播] send_guardian_notify: {summary}")
     send_guardian_notify(summary)
 def run_backtest():
     print("run_backtest() 開始執行")
@@ -97,7 +97,6 @@ def run_backtest():
             for i in range(151, len(df)):
                 row = df.iloc[i]
                 date_str = row.name.strftime("%Y-%m-%d")
-                # 新增：每次檢查資料點都 print
                 print(f"檢查 {symbol} {date_str}，現價：{row['Close']}")
                 ma50 = to_float(row["MA50"])
                 ma150 = to_float(row["MA150"])
@@ -111,12 +110,11 @@ def run_backtest():
                 prev_low = to_float(df["Low"].iloc[i-20:i].min())
                 support = to_float(df["Low"].iloc[i-10:i].min())
                 resistance = to_float(df["High"].iloc[i-10:i].max())
-                # 這裡只傳單一值
                 is_bull = is_bull_market(df["MA150"].iloc[i], df["MA50"].iloc[i])
                 is_bear = is_bear_market(df["MA150"].iloc[i], df["MA50"].iloc[i])
 
-                # 黑天鵝警示（範例：當天跌幅超過-8%）
                 if i > 1 and (df['Close'].iloc[i] - df['Close'].iloc[i-1]) / df['Close'].iloc[i-1] < -0.08:
+                    print(f"[推播] send_trade_notify: ⚠️ 黑天鵝警示：{symbol} {date_str} 單日跌幅超過8%")
                     send_trade_notify(f"⚠️ 黑天鵝警示：{symbol} {date_str} 單日跌幅超過8%")
                     log_ai_learning("黑天鵝警示", f"{symbol} {date_str} 單日跌幅超過8%")
                 if position:
@@ -132,8 +130,10 @@ def run_backtest():
                                 "date": date_str, "ticker": symbol, "action": sell_signal,
                                 "price": round(price, 2), "shares": position["shares"], "position_type": "long"
                             })
+                            print(f"[推播] send_trade_notify: 賣出訊號：{symbol}，價格：{price}，日期：{date_str}")
                             send_trade_notify(f"賣出訊號：{symbol}，價格：{price}，日期：{date_str}")
                             if sell_signal == "SELL_STOP_LOSS":
+                                print(f"[推播] send_guardian_notify: ⚠️ {symbol} 多單觸發止損，日期：{date_str}，價格：{price}")
                                 send_guardian_notify(f"⚠️ {symbol} 多單觸發止損，日期：{date_str}，價格：{price}")
                                 log_ai_learning("多單止損", f"{symbol} {date_str} {price}")
                             position = None
@@ -149,8 +149,10 @@ def run_backtest():
                                 "date": date_str, "ticker": symbol, "action": cover_signal,
                                 "price": round(price, 2), "shares": position["shares"], "position_type": "short"
                             })
+                            print(f"[推播] send_trade_notify: 回補訊號：{symbol}，價格：{price}，日期：{date_str}")
                             send_trade_notify(f"回補訊號：{symbol}，價格：{price}，日期：{date_str}")
                             if cover_signal == "COVER_STOP_LOSS":
+                                print(f"[推播] send_guardian_notify: ⚠️ {symbol} 空單觸發止損，日期：{date_str}，價格：{price}")
                                 send_guardian_notify(f"⚠️ {symbol} 空單觸發止損，日期：{date_str}，價格：{price}")
                                 log_ai_learning("空單止損", f"{symbol} {date_str} {price}")
                             position = None
@@ -171,6 +173,7 @@ def run_backtest():
                                 "date": date_str, "ticker": symbol, "action": "BUY",
                                 "price": round(price, 2), "shares": shares, "position_type": "long"
                             })
+                            print(f"[推播] send_trade_notify: 買入訊號：{symbol}，價格：{price}，日期：{date_str}")
                             send_trade_notify(f"買入訊號：{symbol}，價格：{price}，日期：{date_str}")
                     elif is_bear and evaluate_short_sell(price, ma50, ma150, macd, volume, avg_volume, prev_low, rsi):
                         max_risk_cap = available_cash
@@ -188,12 +191,8 @@ def run_backtest():
                                 "date": date_str, "ticker": symbol, "action": "SHORT_SELL",
                                 "price": round(price, 2), "shares": shares, "position_type": "short"
                             })
+                            print(f"[推播] send_trade_notify: 放空訊號：{symbol}，價格：{price}，日期：{date_str}")
                             send_trade_notify(f"放空訊號：{symbol}，價格：{price}，日期：{date_str}")
-                # AI學習：可在此記錄每次錯判（如多單虧損、空單虧損、黑天鵝等）
-                # log_ai_learning("事件", "細節")
-                # 你可根據需要擴充
-
-                # 記錄每日資本（現金+持倉市值）
                 total_cap = available_cash
                 if position:
                     if position["type"] == "long":
@@ -202,6 +201,7 @@ def run_backtest():
                         total_cap += max(0, position["entry_price"] - price) * position["shares"]
                 capital_trend.append({"date": date_str, "capital": round(total_cap, 2)})
         except Exception as e:
+            print(f"[推播] send_guardian_notify: ❌ 策略異常：{symbol}，錯誤：{e}")
             send_guardian_notify(f"❌ 策略異常：{symbol}，錯誤：{e}")
             log_ai_learning("策略異常", f"{symbol} {e}")
     with open(os.path.join(DATA_PATH, "capital_trend.json"), "w") as f:
@@ -211,9 +211,9 @@ def run_backtest():
     print("回測完成，結果已儲存。")
 
     # 新增推播：無論有無交易都推播
+    print("[推播] send_guardian_notify: ✅ V38 策略主流程已執行完畢（不論有無交易）")
     send_guardian_notify("✅ V38 策略主流程已執行完畢（不論有無交易）")
 
-    # === 新增：自動產生 Dashboard 需要的 CSV 檔案 ===
     pd.DataFrame(capital_trend).to_csv(os.path.join(DATA_PATH, "account_history.csv"), index=False, encoding="utf-8")
     pd.DataFrame(trades).to_csv(os.path.join(DATA_PATH, "trade_records.csv"), index=False, encoding="utf-8")
 def calc_performance(capital_data):
@@ -257,6 +257,7 @@ def job_backtest():
     if os.path.exists(AI_LEARN_LOG):
         os.remove(AI_LEARN_LOG)
 
+    print("[推播] send_trade_notify: V38 策略已於美股開市前20分鐘自動啟動！")
     send_trade_notify("V38 策略已於美股開市前20分鐘自動啟動！")
     run_backtest()
     with open(os.path.join(DATA_PATH, "capital_trend.json"), "r") as f:
@@ -265,7 +266,6 @@ def job_backtest():
     print("本次回測與績效計算已完成。")
 
 def job_ai_summary():
-    # 定期推播AI學習摘要
     push_ai_learning_summary()
     print("AI學習摘要已推播。")
 
