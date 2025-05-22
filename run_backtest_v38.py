@@ -276,6 +276,7 @@ if __name__ == "__main__":
     # 每天台灣時間 22:00 推播AI學習摘要
     scheduler.add_job(job_ai_summary, 'cron', hour=22, minute=0)
     print("排程啟動，等待自動回測與推播...（Ctrl+C 可中止）")
+    run_backtest()  # <--- 立即執行一次回測與推播
     try:
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
