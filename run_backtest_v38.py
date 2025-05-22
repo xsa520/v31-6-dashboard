@@ -85,8 +85,6 @@ def run_backtest():
     selected_pool = get_selected_pool()
     tickers_to_trade = list(set(dynamic_tickers) & set(selected_pool))
     print("本次交集選股：", tickers_to_trade)
-
-    for symbol in tqdm(tickers_to_trade, desc="回測進度"):
     for symbol in tqdm(tickers_to_trade, desc="回測進度"):
         try:
             print(f"開始回測 {symbol}")
